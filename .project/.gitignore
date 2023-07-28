@@ -1,7 +1,7 @@
 ﻿# Offical gitignore for Unity
 # https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/[Aa]ssets/
+/[Aa]ssets/Samples/
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/

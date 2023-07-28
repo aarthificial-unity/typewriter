@@ -10,7 +10,6 @@
         }
       ],
       "dest": "api",
-      "filter": "filter.yml",
       "includePrivateMembers": false,
       "disableGitFeatures": false,
       "disableDefaultFilter": false,
@@ -29,23 +28,40 @@
     "content": [
       {
         "files": [
-          "api/**.yml",
-          "api/index.md"
+          "api/**.yml"
         ]
+      },
+      {
+        "files": [
+          "index.md"
+        ],
+        "src": "apispec",
+        "dest": "api"
       },
       {
         "files": [
           "articles/**.md",
           "articles/**/toc.yml",
           "toc.yml",
-          "*.md"
+          "index.md"
         ]
       }
     ],
     "resource": [
       {
         "files": [
-          "images/**"
+          "images/**",
+          "CNAME"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apispec/*.md"
+        ],
+        "exclude": [
+          "apispec/index.md"
         ]
       }
     ],

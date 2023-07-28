@@ -1,7 +1,0 @@
-﻿apiRules:
-  - include:
-      uidRegex: ^Aarthificial\.Typewriter
-      type: Namespace
-  - exclude:
-      uidRegex: .*
-      type: Namespace

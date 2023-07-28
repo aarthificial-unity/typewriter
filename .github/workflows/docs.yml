@@ -10,10 +10,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Dotnet Setup
-        uses: actions/setup-dotnet@v3
+      - name: License
+        run: echo '${{ secrets.UNITY_LICENSE }}' > license.ulf
+      - uses: actions/cache@v3
         with:
-          dotnet-version: 7.x
-
-      - run: dotnet tool update -g docfx
-      - run: docfx .docfx/docfx.json
+          path: .project/Library
+          key: Library
+      - name: Documentation
+        uses: ./.github/actions/unity
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: .docfx/_site
+          external_repository: aarthificial-gamedev/aarthificial-gamedev.github.io

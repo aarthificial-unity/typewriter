@@ -1,0 +1,6 @@
+name: Unity
+description: Generates a Unity solution.
+runs:
+  using: docker
+  image: unityci/editor:2021.3.25f1-base-1.1.2
+  entrypoint: /github/workspace/.github/actions/unity/entrypoint.sh
