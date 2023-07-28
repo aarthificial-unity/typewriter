@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Unity Solution
+        uses: ./.github/actions/unity
       - name: Dotnet Setup
         uses: actions/setup-dotnet@v3
         with:
