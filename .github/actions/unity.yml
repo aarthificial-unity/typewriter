@@ -1,8 +1,9 @@
 name: Unity
-description: Generates a Unity project.
+description: Generates a Unity solution.
 runs:
   using: docker
   image: aarthificial/fmod:2.02.15
   args:
-    - -build
-    - /github/workspace/.fmod/Foundations.fspro
+    - -projectPath
+    - /github/workspace/.project
+    - -quit
