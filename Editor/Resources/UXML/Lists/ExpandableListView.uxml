@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="True">
+  <ui:Foldout text="Events" name="foldout" class="tree-foldout">
+    <Aarthificial.Typewriter.Editor.Lists.SimpleList
+      focusable="true"
+      item-height="24"
+      selection-type="Multiple"
+      reorderable="true"
+      name="list"
+    />
+  </ui:Foldout>
+</ui:UXML>

@@ -1,0 +1,207 @@
+#main {
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+#panel-left {
+  flex-grow: 0;
+  width: 50%;
+  border-right-width: 1px;
+  border-left-color: rgba(35, 35, 35, 255);
+  border-right-color: rgba(35, 35, 35, 255);
+  border-top-color: rgba(35, 35, 35, 255);
+  border-bottom-color: rgba(35, 35, 35, 255);
+}
+
+#panel-right {
+  width: 50%;
+}
+
+#main.portrait {
+  flex-direction: column;
+}
+
+#main.portrait #panel-left,
+#main.portrait #panel-right {
+  width: 100%;
+  height: 50%;
+}
+
+.inspector-appbar {
+  border-bottom-width: 1px;
+  border-color: var(--unity-colors-window-border);
+  background-color: var(--unity-colors-tab-background-hover);
+  height: 36px;
+}
+
+.inspector-toolbar {
+  /*background-color: var(--unity-colors-box-background);*/
+  border-color: var(--unity-colors-window-border);
+  height: 36px;
+  border-bottom-width: 1px;
+  margin: 0;
+  padding: 8px;
+  flex-direction: row;
+}
+
+.customization {
+  flex-direction: column-reverse;
+  border-width: 1px 0 0 0;
+  border-color: var(--unity-colors-default-border);
+}
+
+.customization .unity-list-view__empty-label {
+  padding-left: 10px;
+}
+
+.inspector-tabs {
+  /*margin-top: -32px;*/
+  padding: 0 8px 8px;
+  border-width: 1px 0 0 0;
+  margin-top: -1px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-color: var(--unity-colors-default-border);
+}
+
+.inspector-tab.unity-toolbar-toggle {
+  background-color: transparent;
+  height: 31px;
+  margin: 0;
+  padding: 0 8px;
+  border-radius: 0 0 2px 2px;
+  border-width: 0 1px 1px 1px;
+  border-color: transparent;
+}
+
+.inspector-tab.unity-toolbar-toggle:hover {
+  background-color: var(--unity-colors-tab-background-hover);
+}
+
+.inspector-tab.unity-toolbar-toggle:checked {
+  background-color: var(--unity-colors-window-background);
+  border-color: var(--unity-colors-default-border);
+  height: 32px;
+  margin-top: -1px;
+}
+
+.inspector-tab.unity-toolbar-toggle > .unity-label {
+  min-width: auto;
+  -unity-text-align: middle-center;
+}
+
+.list-icon {
+  background-color: transparent;
+  border-radius: 2px;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+  -unity-text-align: middle-center;
+}
+
+.list-icon:hover {
+  background-color: var(--unity-colors-tab-background-hover);
+}
+
+.editable-item {
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 0 8px;
+
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.editable-item--changed .editable-item__label {
+  -unity-font-style: bold;
+}
+
+.editable-item__value {
+  -unity-text-align: middle-right;
+  overflow: hidden;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-left: -32px;
+  width: 40px;
+  padding-right: 8px;
+}
+
+.editable-item__label {
+  -unity-text-align: middle-left;
+  overflow: hidden;
+  flex-shrink: 1;
+}
+
+.editable-item__field {
+  margin: 0;
+  flex-shrink: 1;
+}
+
+.editable-item__type {
+  -unity-text-align: middle-right;
+  flex-grow: 1;
+  font-size: 10px;
+}
+
+.editable-item__drag-handle {
+  cursor: pan;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.editable-item:hover .editable-item__drag-handle {
+  display: flex;
+}
+
+.editable-item__drag-icon {
+  cursor: pan;
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  /*background-color: var(--unity-colors-label-text);*/
+  background-image: var(--unity-icons-picker);
+}
+
+.tree-foldout > .unity-foldout__content {
+  margin: 0 0 1px 0;
+}
+
+.tree-foldout .editable-item {
+  margin: 0;
+  padding-left: 32px;
+}
+
+.tree-foldout > .unity-foldout__toggle {
+  /*background-color: var(--unity-colors-tab-background-hover);*/
+  border-top-width: 1px;
+  border-color: #232323;
+  margin: -1px 0 0 0;
+  -unity-font-style: bold;
+}
+
+.tree-foldout > .unity-foldout__toggle:hover {
+  background-color: var(--unity-colors-tab-background-hover);
+}
+
+.tree-foldout .unity-foldout__toggle .unity-toggle__input {
+  height: 24px;
+}
+
+.tree-foldout .unity-foldout__toggle .unity-toggle__checkmark {
+  align-self: center;
+  margin: 0 8px 2px 4px;
+}
+
+.tree-foldout .unity-foldout__toggle .unity-toggle__text {
+  padding: 0;
+}

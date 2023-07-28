@@ -1,0 +1,13 @@
+<ui:UXML
+  xmlns:ui="UnityEngine.UIElements"
+  typewriter="Aarthificial.Typewriter.Editor"
+  editor-extension-mode="True"
+>
+  <ui:VisualElement name="main">
+    <Aarthificial.Typewriter.Editor.Layout.DatabaseView name="panel-left"/>
+    <ui:VisualElement name="panel-right">
+      <Aarthificial.Typewriter.Editor.Layout.Inspector.Toolbar/>
+      <Aarthificial.Typewriter.Editor.Layout.InspectorView style="flex-grow: 1;"/>
+    </ui:VisualElement>
+  </ui:VisualElement>
+</ui:UXML>

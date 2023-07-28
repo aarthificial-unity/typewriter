@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="True">
+  <ui:VisualElement
+    class="inspector-appbar"
+    style="flex-direction: row; padding-left: 8px; padding-right: 8px; padding-top: 10px; padding-bottom: 10px; flex-shrink: 0;"
+  >
+    <ui:Label
+      display-tooltip-when-elided="true" name="titleCategory"
+      style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;"
+    />
+    <ui:Label
+      display-tooltip-when-elided="true" text="/"
+      style="padding-left: 4; padding-right: 4; padding-top: 0; padding-bottom: 0;"
+    />
+    <ui:Label
+      display-tooltip-when-elided="true" name="titleEntry"
+      style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;"
+    />
+    <ui:Label
+      display-tooltip-when-elided="true" name="titleEntryId"
+      style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: auto; opacity: 0.54;"
+    />
+  </ui:VisualElement>
+</ui:UXML>

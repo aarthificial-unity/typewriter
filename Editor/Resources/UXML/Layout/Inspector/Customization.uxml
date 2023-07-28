@@ -1,0 +1,44 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="True">
+  <Aarthificial.Typewriter.Editor.Layout.TabbedView
+    name="container"
+    select-any="false"
+    style="margin-top: 0;"
+  >
+    <Aarthificial.Typewriter.Editor.Lists.EditableListView
+      name="Criteria"
+      title="Criteria"
+      title-tooltip="The requirements that must be met for entry to be invoked."
+      view-data-key="Criteria"
+      selection-type="Single"
+      reorderable="true"
+      style="min-height: 72px; flex-grow: 1;"
+    />
+    <Aarthificial.Typewriter.Editor.Lists.EditableListView
+      name="Modifications"
+      title="Modifications"
+      title-tooltip="The modifications applied after the entry has been processed."
+      view-data-key="Modifications"
+      selection-type="Single"
+      reorderable="true"
+      style="min-height: 72px; flex-grow: 1;"
+    />
+    <Aarthificial.Typewriter.Editor.Lists.EditableListView
+      name="OnApply"
+      title="OnApply"
+      title-tooltip="The events triggered after the entry has been processed."
+      view-data-key="OnApply"
+      selection-type="Single"
+      reorderable="true"
+      style="min-height: 72px; flex-grow: 1;"
+    />
+    <Aarthificial.Typewriter.Editor.Lists.EditableListView
+      name="OnInvoke"
+      title="OnInvoke"
+      title-tooltip="The events triggered when the entry is invoked."
+      view-data-key="OnInvoke"
+      selection-type="Single"
+      reorderable="true"
+      style="min-height: 72px; flex-grow: 1;"
+    />
+  </Aarthificial.Typewriter.Editor.Layout.TabbedView>
+</ui:UXML>

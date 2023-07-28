@@ -1,0 +1,12 @@
+{
+  "name": "Aarthificial.Typewriter.Tests",
+  "rootNamespace": "Aarthificial.Typewriter.Tests",
+  "references": [
+    "Aarthificial.Typewriter"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": []
+}

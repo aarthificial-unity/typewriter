@@ -1,0 +1,77 @@
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
+
+namespace Aarthificial.Typewriter.Common {
+  [Serializable]
+  public static class UidGenerator {
+    public const string MachineIdPrefKey =
+      "Aarthificial.Typewriter.Common.UidGenerator.MachineId";
+    public const string SequencePrefKey =
+      "Aarthificial.Typewriter.Common.UidGenerator.Sequence";
+
+    private const int _machineIdBits = 10;
+    private const int _sequenceBits = 12;
+
+    private static readonly int _maxMachineId =
+      (int)(Mathf.Pow(2, _machineIdBits) - 1);
+    private static readonly int _maxSequence =
+      (int)(Mathf.Pow(2, _sequenceBits) - 1);
+
+    public static int GetNextKey() {
+      // If we are generating another id in the same millisecond then we need to increment the sequence
+      // or wait till the next millisecond if we have exhausted our sequences.
+      int id = MachineId << _sequenceBits;
+      id |= Sequence++;
+      return id;
+    }
+
+#if UNITY_EDITOR
+    private static int _sequence =
+      UnityEditor.EditorPrefs.GetInt(SequencePrefKey, 0);
+#else
+     private static uint _sequence = 0;
+#endif
+
+    private static int Sequence {
+      get => _sequence;
+      set => _sequence = value & _maxSequence;
+    }
+
+    private static int _machineId;
+
+    private static int MachineId {
+      get {
+        if (_machineId == 0) {
+          _machineId = GetMachineId();
+        }
+        return _machineId;
+      }
+      set {
+        _machineId = Mathf.Clamp(value, 1, _maxMachineId);
+#if UNITY_EDITOR
+        UnityEditor.EditorPrefs.SetInt(MachineIdPrefKey, _machineId);
+#endif
+      }
+    }
+
+    private static int GetMachineId() {
+#if UNITY_EDITOR
+      var id = UnityEditor.EditorPrefs.GetInt(MachineIdPrefKey, 0);
+      if (id != 0) {
+        return id;
+      }
+
+      foreach (var nic in System.Net.NetworkInformation.NetworkInterface
+        .GetAllNetworkInterfaces()) {
+        if (nic.OperationalStatus
+          == System.Net.NetworkInformation.OperationalStatus.Up) {
+          var address = nic.GetPhysicalAddress().ToString();
+          return address.GetHashCode() & _maxMachineId;
+        }
+      }
+#endif
+      return Random.Range(0, _maxMachineId);
+    }
+  }
+}

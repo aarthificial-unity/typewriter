@@ -1,0 +1,30 @@
+<ui:UXML
+  xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements"
+  editor-extension-mode="True"
+>
+  <ui:VisualElement name="toolbar" class="inspector-toolbar">
+    <uie:ToolbarSearchField
+      focusable="true"
+      name="search"
+      style="width: auto; flex-shrink: 1; flex-grow: 1; margin-left: 0; margin-right: 8px; margin-top: 0; margin-bottom: 0;"
+    />
+    <ui:Button
+      text="+"
+      display-tooltip-when-elided="true"
+      name="add"
+      class="list-icon"
+    />
+    <ui:Button
+      text="-"
+      display-tooltip-when-elided="true"
+      name="remove"
+      class="list-icon"
+    />
+  </ui:VisualElement>
+  <Aarthificial.Typewriter.Editor.Lists.SimpleList
+    focusable="true"
+    name="list"
+    item-height="24"
+    style="flex-grow: 1;"
+  />
+</ui:UXML>

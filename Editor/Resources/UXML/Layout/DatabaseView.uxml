@@ -1,0 +1,45 @@
+<ui:UXML
+  xmlns:ui="UnityEngine.UIElements"
+  typewriter="Aarthificial.Typewriter.Editor" editor-extension-mode="True"
+>
+  <ui:VisualElement
+    name="content"
+    style="flex-direction: row; flex-grow: 1;"
+  >
+    <ui:VisualElement
+      style="flex-grow: 0; max-width: 280px; flex-shrink: 1; width: 45%;"
+    >
+      <Aarthificial.Typewriter.Editor.Layout.TableListView
+        name="tables"
+        view-data-key="tables"
+        selection-type="Multiple"
+        reorderable="true"
+        style="flex-grow: 1;"
+      />
+    </ui:VisualElement>
+    <ui:VisualElement
+      style="flex-grow: 1; border-left-width: 1px; border-right-width: 0; border-left-color: rgb(35, 35, 35); border-right-color: rgb(35, 35, 35); border-top-color: rgb(35, 35, 35); border-bottom-color: rgb(35, 35, 35);"
+    >
+      <Aarthificial.Typewriter.Editor.Layout.EntryListView
+        name="entries"
+        view-data-key="entries"
+        style="flex-grow: 1;"
+      />
+    </ui:VisualElement>
+  </ui:VisualElement>
+  <ui:VisualElement
+    name="empty"
+    style="flex-grow: 1; justify-content: center; align-items: center;"
+  >
+    <ui:Label
+      text="Could not find the symbol database."
+      style="margin-bottom: 4px"
+      display-tooltip-when-elided="true"
+    />
+    <ui:Button
+      text="Create database"
+      display-tooltip-when-elided="true"
+      name="create"
+    />
+  </ui:VisualElement>
+</ui:UXML>

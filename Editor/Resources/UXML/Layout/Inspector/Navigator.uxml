@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="True">
+  <ui:VisualElement
+    style="flex-direction: row; justify-content: center; margin-bottom: 16px; margin-left: 16px; margin-right: 16px; margin-top: 16px;"
+  >
+    <Aarthificial.Typewriter.Editor.Layout.Inspector.NavigatorButton
+      name="previous"
+      title="Previous"
+      style="width: 96px;"
+    />
+    <Aarthificial.Typewriter.Editor.Layout.Inspector.NavigatorButton
+      name="alternative"
+      title="Branches"
+      style="width: 96px;"
+    />
+    <Aarthificial.Typewriter.Editor.Layout.Inspector.NavigatorButton
+      name="next"
+      title="Next"
+      style="width: 96px;"
+    />
+  </ui:VisualElement>
+</ui:UXML>
