@@ -161,7 +161,7 @@ namespace Aarthificial.Typewriter.Editor.References {
         || Event.current.type == EventType.DragPerform) {
         if (DragAndDrop.paths.Length > 0
           && position.Contains(Event.current.mousePosition)
-          && int.TryParse(DragAndDrop.paths[0], out var id)
+          && TryParsePath(DragAndDrop.paths[0], out var id)
           && TypewriterDatabase.Instance.TryGetEntry(id, out entry)
           && filter.Test(entry)) {
           DragAndDrop.visualMode = DragAndDropVisualMode.Link;
@@ -205,6 +205,12 @@ namespace Aarthificial.Typewriter.Editor.References {
       public static readonly GUIStyle IconButton = new("MiniButton") {
         padding = new RectOffset(0, 0, 0, 0),
       };
+    }
+
+    private static bool TryParsePath(string path, out int id) {
+      var lastSlash = path.LastIndexOf('/');
+      var substring = path.AsSpan(lastSlash + 1);
+      return int.TryParse(substring, out id);
     }
   }
 }

@@ -25,8 +25,9 @@ namespace Aarthificial.Typewriter.Editor.Lists.Items {
     }
 
     private void HandlePointerDown(PointerDownEvent evt) {
-      DragAndDrop.StartDrag("Drag entry");
+      DragAndDrop.PrepareStartDrag();
       DragAndDrop.paths = new[] { ID.ToString() };
+      DragAndDrop.StartDrag("Drag entry");
       evt.StopPropagation();
     }
 

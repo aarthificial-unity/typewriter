@@ -44,12 +44,12 @@ namespace Aarthificial.Typewriter.Editor {
       _toolbar = rootVisualElement.Q<Toolbar>();
       _main = rootVisualElement.Q<VisualElement>("main");
       _main.RegisterCallback<GeometryChangedEvent>(HandleGeometryChanged);
-
       _database.SelectionChanged += Refresh;
+      HandleGeometryChanged(null);
       Refresh();
     }
 
-    private void HandleGeometryChanged(GeometryChangedEvent evt) {
+    private void HandleGeometryChanged(GeometryChangedEvent _) {
       var isPortrait = _main.layout.width < _main.layout.height;
       if (_isPortrait != isPortrait) {
         _isPortrait = isPortrait;
