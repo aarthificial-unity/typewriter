@@ -35,12 +35,14 @@ the Package Manager:
 
 ![The git URL input in Unity's Package Manager](/images/package-manager-samples.png)
 
-After pressing play, you'll be presented with multiple buttons that demonstrate
-different types of conversations:
+Open the `SampleScene` located in the
+`Assets/Samples/Typewriter/<version>/VisualNovel/Scenes` directory and press
+play. You'll be presented with multiple buttons that demonstrate different types
+of conversations:
 
 - **Linear** showcases a simple, linear dialogue.
 - **Choices** presents the player with a choice.
-- **Contextual** shows how to change the dialogue based on the context.
+- **Contextual** changes the dialogue based on the context.
 
 You can open the Typewriter Editor using `Tools > Typewriter` and explore the
 entries that make up the dialogue. For clarity, each conversation has been

@@ -1,0 +1,354 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d0878fa1be1f546a2a65661326a877, type: 3}
+  m_Name: Contextual
+  m_EditorClassIdentifier: 
+  TableName: Contextual
+  Rules:
+  - rid: 5862282233427787786
+  - rid: 5862282233427787787
+  - rid: 5862282233427787788
+  - rid: 5862282233427787790
+  - rid: 5862282233427787791
+  - rid: 5862282233427787792
+  - rid: 5862282233427787795
+  - rid: 5862282233427787796
+  - rid: 5862282233427787793
+  - rid: 5862282233427787794
+  Facts:
+  - rid: 5862282233427787797
+  Events:
+  - rid: 5862282233427787779
+  references:
+    version: 2
+    RefIds:
+    - rid: 5862282233427787779
+      type: {class: EventEntry, ns: Aarthificial.Typewriter.Entries, asm: Aarthificial.Typewriter}
+      data:
+        ID: 1388554
+        Key: on_start_conversation
+        Scope:
+          InternalID: 0
+        Triggers:
+          List: []
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications: []
+    - rid: 5862282233427787786
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388560
+        Key: nothing_interesting
+        Scope:
+          InternalID: 1388553
+        Triggers:
+          List:
+          - InternalID: 1388554
+        Once: 1
+        Padding: 2
+        Criteria:
+        - FactReference:
+            InternalID: 1388555
+          Min: 0
+          Max: 0
+          Operation: 0
+        - FactReference:
+            InternalID: 1388563
+          Min: 0
+          Max: 0
+          Operation: 0
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: Nothing interesting to see here yet.
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787787
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388561
+        Key: check_out_other
+        Scope:
+          InternalID: 0
+        Triggers:
+          List:
+          - InternalID: 1388560
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: Check out the other buttons and come back later.
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787788
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388562
+        Key: nothing_interesting_2
+        Scope:
+          InternalID: 1388553
+        Triggers:
+          List:
+          - InternalID: 1388554
+        Once: 1
+        Padding: 1
+        Criteria:
+        - FactReference:
+            InternalID: 1388563
+          Min: 0
+          Max: 0
+          Operation: 0
+        - FactReference:
+            InternalID: 1388555
+          Min: 0
+          Max: 0
+          Operation: 0
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: Still nothing to see here.
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787790
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388564
+        Key: nothing_interesting_3
+        Scope:
+          InternalID: 1388553
+        Triggers:
+          List:
+          - InternalID: 1388554
+        Once: 1
+        Padding: 0
+        Criteria:
+        - FactReference:
+            InternalID: 1388563
+          Min: 0
+          Max: 0
+          Operation: 0
+        - FactReference:
+            InternalID: 1388555
+          Min: 0
+          Max: 0
+          Operation: 0
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: You should really give the other conversations a chance.
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787791
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388565
+        Key: linear
+        Scope:
+          InternalID: 1388553
+        Triggers:
+          List:
+          - InternalID: 1388554
+        Once: 1
+        Padding: 2
+        Criteria:
+        - FactReference:
+            InternalID: 1388563
+          Min: 1
+          Max: 1
+          Operation: 0
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: How did the linear conversation went?
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787792
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388566
+        Key: linear_choices
+        Scope:
+          InternalID: 1388553
+        Triggers:
+          List:
+          - InternalID: 1388565
+        Once: 0
+        Padding: 0
+        Criteria:
+        - FactReference:
+            InternalID: 1388555
+          Min: 1
+          Max: 2147483647
+          Operation: 2
+        - FactReference:
+            InternalID: 1388570
+          Min: 0
+          Max: 0
+          Operation: 0
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: Oh! And you've also checked the choices?
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787793
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388567
+        Key: choice_a
+        Scope:
+          InternalID: 0
+        Triggers:
+          List:
+          - InternalID: 1388554
+          - InternalID: 1388566
+        Once: 0
+        Padding: 0
+        Criteria:
+        - FactReference:
+            InternalID: 1388555
+          Min: 1
+          Max: 1
+          Operation: 0
+        - FactReference:
+            InternalID: 1388570
+          Min: 0
+          Max: 0
+          Operation: 0
+        Modifications:
+        - FactReference:
+            InternalID: 1388570
+          Value: 1
+          Operation: 0
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: Option A? My favorite.
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787794
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388568
+        Key: choice_b
+        Scope:
+          InternalID: 0
+        Triggers:
+          List:
+          - InternalID: 1388554
+          - InternalID: 1388566
+        Once: 0
+        Padding: 0
+        Criteria:
+        - FactReference:
+            InternalID: 1388555
+          Min: 2
+          Max: 2
+          Operation: 0
+        - FactReference:
+            InternalID: 1388570
+          Min: 0
+          Max: 0
+          Operation: 0
+        Modifications:
+        - FactReference:
+            InternalID: 1388570
+          Value: 1
+          Operation: 0
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: Option B? Well, to each their own I guees.
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787795
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388559
+        Key: linear_no_choices
+        Scope:
+          InternalID: 0
+        Triggers:
+          List:
+          - InternalID: 1388565
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: That's good to hear.
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787796
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388569
+        Key: linear_no_choices_go
+        Scope:
+          InternalID: 0
+        Triggers:
+          List:
+          - InternalID: 1388559
+        Once: 0
+        Padding: 0
+        Criteria:
+        - FactReference:
+            InternalID: 1388570
+          Min: 0
+          Max: 0
+          Operation: 0
+        - FactReference:
+            InternalID: 1388555
+          Min: 0
+          Max: 0
+          Operation: 0
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: Now go and make a choice! That's my favorite part.
+        _speaker:
+          InternalID: 1388573
+    - rid: 5862282233427787797
+      type: {class: FactEntry, ns: Aarthificial.Typewriter.Entries, asm: Aarthificial.Typewriter}
+      data:
+        ID: 1388570
+        Key: talked_about_choices
+        Scope:
+          InternalID: 1388552
+        Triggers:
+          List: []
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications: []

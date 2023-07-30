@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d0878fa1be1f546a2a65661326a877, type: 3}
+  m_Name: Linear
+  m_EditorClassIdentifier: 
+  TableName: Linear
+  Rules:
+  - rid: 5862282233427787781
+  - rid: 5862282233427787782
+  - rid: 5862282233427787783
+  - rid: 5862282233427787784
+  Facts:
+  - rid: 5862282233427787789
+  Events:
+  - rid: 5862282233427787778
+  references:
+    version: 2
+    RefIds:
+    - rid: 5862282233427787778
+      type: {class: EventEntry, ns: Aarthificial.Typewriter.Entries, asm: Aarthificial.Typewriter}
+      data:
+        ID: 1388544
+        Key: on_start_conversation
+        Scope:
+          InternalID: 0
+        Triggers:
+          List: []
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications:
+        - FactReference:
+            InternalID: 1388563
+          Value: 1
+          Operation: 0
+    - rid: 5862282233427787781
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388547
+        Key: hello
+        Scope:
+          InternalID: 0
+        Triggers:
+          List:
+          - InternalID: 1388544
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: Hello!
+        _speaker:
+          InternalID: 1388571
+    - rid: 5862282233427787782
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388556
+        Key: simple_example
+        Scope:
+          InternalID: 0
+        Triggers:
+          List:
+          - InternalID: 1388547
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: I'm just a simple conversation example.
+        _speaker:
+          InternalID: 1388571
+    - rid: 5862282233427787783
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388557
+        Key: few_lines
+        Scope:
+          InternalID: 0
+        Triggers:
+          List:
+          - InternalID: 1388556
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: With a few lines happening one after the other.
+        _speaker:
+          InternalID: 1388571
+    - rid: 5862282233427787784
+      type: {class: DialogueEntry, ns: , asm: Assembly-CSharp}
+      data:
+        ID: 1388558
+        Key: check_out_other
+        Scope:
+          InternalID: 0
+        Triggers:
+          List:
+          - InternalID: 1388557
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications: []
+        OnApply: []
+        OnInvoke: []
+        Speed: 1
+        IsChoice: 0
+        Text: Check out the other conversations for something more interesting.
+        _speaker:
+          InternalID: 1388571
+    - rid: 5862282233427787789
+      type: {class: FactEntry, ns: Aarthificial.Typewriter.Entries, asm: Aarthificial.Typewriter}
+      data:
+        ID: 1388563
+        Key: interacted
+        Scope:
+          InternalID: 1388552
+        Triggers:
+          List: []
+        Once: 0
+        Padding: 0
+        Criteria: []
+        Modifications: []
