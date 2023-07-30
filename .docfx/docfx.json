@@ -4,12 +4,26 @@
       "src": [
         {
           "src": "..",
-          "files": [
-            ".project/Aarthificial.Typewriter.csproj"
-          ]
+          "files": [".project/Aarthificial.Typewriter.csproj"]
         }
       ],
-      "dest": "api",
+      "dest": "api/runtime",
+      "includePrivateMembers": false,
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "noRestore": false,
+      "namespaceLayout": "flattened",
+      "memberLayout": "samePage",
+      "allowCompilationErrors": false
+    },
+    {
+      "src": [
+        {
+          "src": "..",
+          "files": [".project/Aarthificial.Typewriter.Editor.csproj"]
+        }
+      ],
+      "dest": "api/editor",
       "includePrivateMembers": false,
       "disableGitFeatures": false,
       "disableDefaultFilter": false,
@@ -21,63 +35,57 @@
   ],
   "build": {
     "globalMetadata": {
+      "_lang": "en",
+      "_appFaviconPath": "images/favicon.svg",
+      "_appLogoPath": "images/logo.svg",
+      "_appLogoDarkPath": "images/logo-dark.svg",
+      "_appBannerUrl": "https://typewriter.aarthificial.com/images/banner.png",
+      "_appName": "Typewriter",
       "_appTitle": "Typewriter",
-      "_appFooter": "Where would this be?",
-      "_enableSearch": true
+      "_appFooter": "Made with <a href=\"https://dotnet.github.io/docfx\">docfx</a></span>",
+      "_enableSearch": true,
+      "_gitContribute": {
+        "repo": "https://github.com/aarthificial-gamedev/typewriter",
+        "branch": "main",
+        "apiSpecFolder": ".project/apispec"
+      }
     },
     "content": [
       {
-        "files": [
-          "api/**.yml"
-        ]
+        "files": ["api/**.yml"]
       },
       {
-        "files": [
-          "index.md"
-        ],
-        "src": "apispec",
+        "files": ["editor/index.md", "runtime/index.md"],
+        "src": "docs/api",
         "dest": "api"
       },
       {
-        "files": [
-          "articles/**.md",
-          "articles/**/toc.yml",
-          "toc.yml",
-          "index.md"
-        ]
+        "files": ["docs/**.md", "docs/**/toc.yml", "toc.yml"],
+        "exclude": ["docs/api/**", "docs/index.md"]
+      },
+      {
+        "files": ["index.md"],
+        "src": "docs",
+        "dest": "."
       }
     ],
     "resource": [
       {
-        "files": [
-          "images/**",
-          "CNAME"
-        ]
+        "files": ["images/**", "CNAME"]
       }
     ],
     "overwrite": [
       {
-        "files": [
-          "apispec/*.md"
-        ],
-        "exclude": [
-          "apispec/index.md"
-        ]
+        "files": ["docs/api/*.md"],
+        "exclude": ["docs/api/runtime/index.md", "docs/api/editor/index.md"]
       }
     ],
     "output": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
-    "template": [
-      "default",
-      "modern"
-    ],
-    "xref": [
-      "https://normanderwan.github.io/UnityXrefMaps/xrefmap.yml"
-    ],
-    "xrefService": [
-      "https://xref.docs.microsoft.com/query?uid={uid}"
-    ],
+    "template": ["default", "modern", "template"],
+    "xref": ["https://normanderwan.github.io/UnityXrefMaps/xrefmap.yml"],
+    "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"],
     "postProcessors": [],
     "keepFileLink": false,
     "disableGitFeatures": false

@@ -1,0 +1,103 @@
+:root {
+  --bs-link-color: rgb(95, 178, 247);
+  --bs-link-color-rgb: 95, 178, 247;
+  --bs-link-hover-color: rgb(133, 194, 248);
+  --bs-link-hover-color-rgb: 133, 194, 248;
+  --theme-color: rgb(var(--bs-link-color-rgb));
+}
+[data-bs-theme='dark']:root {
+  --bs-body-bg: #141414;
+  --bs-body-bg-rgb: 30, 30, 30;
+  --bs-tertiary-bg: #242424;
+  --bs-body-color: rgba(255, 255, 255, 0.86);
+  --bs-secondary-bg: #242424;
+  --bs-secondary-rgb: 165, 0, 0;
+  --bs-secondary-color: rgba(255, 255, 255, 0.6);
+  --bs-secondary-color-hover: rgba(255, 255, 255, 0.86);
+  --bs-border-color: #404040;
+}
+.pagination {
+  --bs-pagination-active-bg: var(--theme-color);
+  --bs-pagination-active-border-color: var(--theme-color);
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem
+    rgba(var(--bs-link-color-rgb), 0.25);
+}
+[data-bs-theme='dark'] #logo,
+#logo-dark {
+  display: none;
+}
+[data-bs-theme='dark'] #logo-dark {
+  display: block;
+}
+.navbar-app-name {
+  font-family:
+    Roboto Slab,
+    serif;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    Roboto Slab,
+    serif;
+}
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  margin: 2rem 0 1rem;
+}
+.alert > h5,
+h1:first-of-type {
+  margin: 0 0 1rem;
+}
+.text-secondary,
+.link-secondary,
+#search-results > .search-list {
+  color: var(--bs-secondary-color);
+}
+.link-secondary:hover {
+  color: var(--bs-secondary-color-hover);
+}
+[data-bs-theme='dark'] .hljs {
+  background-color: #080808;
+}
+header {
+  background-color: var(--bs-body-bg);
+}
+.form-control:focus {
+  border-color: var(--theme-color);
+  outline: 0;
+  box-shadow: none;
+}
+#search-results > .sr-items .sr-item > .item-title {
+  margin: 2rem 0 0.5rem;
+  font-size: calc(1.3rem + 0.6vw);
+  line-height: 1.25;
+}
+@media screen and (min-width: 1200px) {
+  #search-results > .sr-items .sr-item > .item-title {
+    font-size: 1.75rem;
+  }
+}
+#search-results > .sr-items .sr-item > .item-href {
+  margin-bottom: 0.5rem;
+  font-size: var(--bs-body-font-size);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: var(--bs-body-line-height);
+}
+#search-results > .sr-items .sr-item > .item-brief {
+  margin-bottom: 2rem;
+  font-size: var(--bs-body-font-size);
+  line-height: var(--bs-body-line-height);
+}
+dd {
+  margin-top: 0.25rem;
+}

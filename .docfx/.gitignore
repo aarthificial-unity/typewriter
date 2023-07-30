@@ -1,2 +1,4 @@
 /api/
 /_site/
+/node_modules/
+/_exported_templates/
