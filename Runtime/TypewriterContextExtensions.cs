@@ -5,7 +5,7 @@ using Aarthificial.Typewriter.Tools;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace Aarthificial.Typewriter.Common {
+namespace Aarthificial.Typewriter {
   public static class TypewriterContextExtensions {
     public static bool WouldInvoke(
       this ITypewriterContext provider,
@@ -47,9 +47,7 @@ namespace Aarthificial.Typewriter.Common {
       return reference.TryGetEntry(out var entry) && provider.Process(entry);
     }
 
-    /// <summary>
-    ///
-    /// </summary>
+    /// <summary></summary>
     /// <param name="provider"></param>
     /// <param name="entry"></param>
     /// <param name="next"></param>

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33d0878fa1be1f546a2a65661326a877, type: 3}
   m_Name: Contextual
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   TableName: Contextual
   Rules:
   - rid: 5862282233427787786
@@ -190,7 +190,7 @@ MonoBehaviour:
         ID: 1388566
         Key: linear_choices
         Scope:
-          InternalID: 1388553
+          InternalID: 0
         Triggers:
           List:
           - InternalID: 1388565

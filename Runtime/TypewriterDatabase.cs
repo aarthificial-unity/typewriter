@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Aarthificial.Typewriter.Common {
+namespace Aarthificial.Typewriter {
   public class TypewriterDatabase : ScriptableObject,
     ISerializationCallbackReceiver {
     public delegate void EntryAction(
@@ -17,13 +17,13 @@ namespace Aarthificial.Typewriter.Common {
     private static TypewriterDatabase _instance;
 
     public List<DatabaseTable> Tables = new();
-
     private readonly Dictionary<int, BaseEntry> _entryLookup = new();
+
     private readonly Dictionary<int, EntryAction> _events = new();
-    private readonly Dictionary<int, List<BaseEntry>> _ruleLookup = new();
+    private readonly Dictionary<int, List<BaseEntry>> _relationsLookup = new();
     private readonly Dictionary<int, DatabaseTable> _tableLookup = new();
-    private bool _lookupCreated;
     private int _changeCounter = 1;
+    private bool _lookupCreated;
 
     public static TypewriterDatabase Instance {
       get {
@@ -74,7 +74,8 @@ namespace Aarthificial.Typewriter.Common {
       }
 
       return key;
-    } // ReSharper disable Unity.PerformanceAnalysis
+    }
+
     public void CreateLookupIfNecessary() {
       if (!_lookupCreated) {
         CreateLookup();
@@ -106,7 +107,6 @@ namespace Aarthificial.Typewriter.Common {
 #endif
 
       _lookupCreated = true;
-      _ruleLookup.Clear();
       _entryLookup.Clear();
       _tableLookup.Clear();
 
@@ -130,15 +130,43 @@ namespace Aarthificial.Typewriter.Common {
           OnCreateEntry(entry, table);
         }
       }
+
+      RecreateRelations();
+    }
+
+    internal void RecreateRelations() {
+      if (!_lookupCreated) {
+        return;
+      }
+
+      foreach (var list in _relationsLookup.Values) {
+        list.Clear();
+      }
+
+      foreach (var entry in _entryLookup.Values) {
+        CreateRelations(entry);
+      }
+    }
+
+    private void CreateRelations(BaseEntry entry) {
+      foreach (var trigger in entry.Triggers.List) {
+        var searchList = GetRelations(trigger.ID);
+        var index = searchList.BinarySearch(entry);
+        if (index < 0) {
+          index = ~index;
+        }
+
+        searchList.Insert(index, entry);
+      }
     }
 
     #region rules
 
-    public List<BaseEntry> GetRules(int id) {
+    public List<BaseEntry> GetRelations(int id) {
       CreateLookupIfNecessary();
-      if (!_ruleLookup.TryGetValue(id, out var list)) {
+      if (!_relationsLookup.TryGetValue(id, out var list)) {
         list = new List<BaseEntry>();
-        _ruleLookup[id] = list;
+        _relationsLookup[id] = list;
       }
 
       return list;
@@ -163,6 +191,7 @@ namespace Aarthificial.Typewriter.Common {
 
       table.AddEntry(entry);
       OnCreateEntry(entry, table);
+      CreateRelations(entry);
     }
 
     public bool RemoveEntry(BaseEntry entry) {
@@ -222,18 +251,7 @@ namespace Aarthificial.Typewriter.Common {
 
       _entryLookup[entry.ID] = entry;
       _tableLookup[entry.ID] = table;
-      var id = entry.ID;
-      entry.Entries = GetRules(entry.ID);
-
-      foreach (var trigger in entry.Triggers.List) {
-        var searchList = GetRules(trigger.ID);
-        var index = searchList.BinarySearch(entry);
-        if (index < 0) {
-          index = ~index;
-        }
-
-        searchList.Insert(index, entry);
-      }
+      entry.Entries = GetRelations(entry.ID);
     }
 
     private void OnRemoveEntry(BaseEntry entry) {
@@ -245,7 +263,7 @@ namespace Aarthificial.Typewriter.Common {
       _tableLookup.Remove(entry.ID);
 
       foreach (var trigger in entry.Triggers.List) {
-        GetRules(trigger.ID).Remove(entry);
+        GetRelations(trigger.ID).Remove(entry);
       }
     }
 

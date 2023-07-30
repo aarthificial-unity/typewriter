@@ -8,8 +8,6 @@ using UnityEngine.UIElements;
 
 namespace Aarthificial.Typewriter.Editor.Layout {
   public class TabbedView : VisualElement {
-    public event Action<int> TabChanged;
-
     private readonly VisualElement _tabContainer;
     private List<VisualElement> _panes;
     private List<ToolbarToggle> _tabs;
@@ -24,6 +22,7 @@ namespace Aarthificial.Typewriter.Editor.Layout {
     }
 
     public bool SelectAny { get; set; }
+    public event Action<int> TabChanged;
 
     private void HandleAttachToPanel(AttachToPanelEvent evt) {
       Refresh();

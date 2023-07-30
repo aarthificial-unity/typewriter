@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using Aarthificial.Typewriter.Editor.Extensions;
+﻿using Aarthificial.Typewriter.Editor.Extensions;
 using Aarthificial.Typewriter.Editor.Lists;
 using Aarthificial.Typewriter.Editor.Lists.Items;
 using System;

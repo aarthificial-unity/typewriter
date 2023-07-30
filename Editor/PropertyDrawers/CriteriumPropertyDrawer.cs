@@ -57,6 +57,7 @@ namespace Aarthificial.Typewriter.Editor.PropertyDrawers {
             minProperty.intValue = referenceValue;
             maxProperty.intValue = referenceValue;
           }
+          EditorGUI.EndChangeCheck();
 
           break;
         case BlackboardCriterion.OperationType.Equal:

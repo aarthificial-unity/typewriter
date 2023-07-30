@@ -1,6 +1,4 @@
 ﻿#if UNITY_LOCALIZATION
-using Aarthificial.Typewriter.Common;
-using Aarthificial.Typewriter.Editor.Common;
 using Aarthificial.Typewriter.Editor.Localization;
 using Aarthificial.Typewriter.Entries;
 using UnityEditor;

@@ -1,6 +1,4 @@
 ﻿using Aarthificial.Typewriter.Attributes;
-using Aarthificial.Typewriter.Blackboards;
-using Aarthificial.Typewriter.Common;
 using Aarthificial.Typewriter.Entries;
 using Aarthificial.Typewriter.References;
 using System;
@@ -31,7 +29,7 @@ namespace Aarthificial.Typewriter.Tools {
 
     [Serializable]
     private struct EventData {
-      [EntryFilter(Type = EntryType.Event)]
+      [EntryFilter(Variant = EntryVariant.Event)]
       public EntryReference EventReference;
       [SerializeField] private bool _once;
       [SerializeField] private UnityEvent _unityEvent;

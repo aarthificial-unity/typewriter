@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Aarthificial.Typewriter.Common {
+namespace Aarthificial.Typewriter {
   [Serializable]
   public class DatabaseTable : ScriptableObject {
     public string TableName;

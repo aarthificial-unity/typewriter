@@ -1,5 +1,4 @@
 ﻿using Aarthificial.Typewriter.Attributes;
-using Aarthificial.Typewriter.Common;
 using Aarthificial.Typewriter.Entries;
 using Aarthificial.Typewriter.References;
 using System;
@@ -9,7 +8,7 @@ namespace Aarthificial.Typewriter.Tools {
   [Serializable]
   public class TypewriterEvent {
     [SerializeField]
-    [EntryFilter(PreferredType = EntryType.Event, AllowEmpty = true)]
+    [EntryFilter(PreferredVariant = EntryVariant.Event, AllowEmpty = true)]
     public EntryReference EventReference;
 
     public bool Invoke(ITypewriterContext provider) {

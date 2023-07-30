@@ -117,7 +117,7 @@ namespace Aarthificial.Typewriter.Blackboards {
 
     [Serializable]
     public struct Pair {
-      [EntryFilter(PreferredType = EntryType.Fact)]
+      [EntryFilter(PreferredVariant = EntryVariant.Fact)]
       public EntryReference Key;
       public int Value;
     }

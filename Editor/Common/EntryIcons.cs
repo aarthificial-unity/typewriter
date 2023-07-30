@@ -10,10 +10,10 @@ namespace Aarthificial.Typewriter.Editor.Common {
     private static readonly Texture2D RuleEntryIcon =
       Resources.Load<Texture2D>("Textures/RuleEntry");
 
-    public static Texture2D GetIcon(this EntryType type) {
-      return type switch {
-        EntryType.Event => EventEntryIcon,
-        EntryType.Fact => FactEntryIcon,
+    public static Texture2D GetIcon(this EntryVariant variant) {
+      return variant switch {
+        EntryVariant.Event => EventEntryIcon,
+        EntryVariant.Fact => FactEntryIcon,
         _ => RuleEntryIcon,
       };
     }

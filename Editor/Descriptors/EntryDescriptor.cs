@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using Aarthificial.Typewriter.Editor.Layout.Inspector;
+﻿using Aarthificial.Typewriter.Editor.Layout.Inspector;
 using Aarthificial.Typewriter.Entries;
 using System;
 using System.Collections.Generic;
@@ -14,16 +13,16 @@ namespace Aarthificial.Typewriter.Editor.Descriptors {
     public virtual string Name => RealType.Name;
 
     /// <summary>Entry type.</summary>
-    public virtual EntryType Type { get; protected set; } = EntryType.Rule;
+    public virtual EntryVariant Variant => EntryVariant.Rule;
 
     /// <summary>Display color.</summary>
-    public virtual string Color { get; protected set; } = "#ffffff";
+    public virtual string Color => "#ffffff";
 
     /// <summary>
     ///   Whether or not the entry is optional. Optional entries are shown only
     ///   if no other entry is available.
     /// </summary>
-    public virtual bool Optional { get; protected set; }
+    public virtual bool Optional => false;
 
     /// <summary>
     ///   Whether or not the entry should have a customization panel. Criteria,

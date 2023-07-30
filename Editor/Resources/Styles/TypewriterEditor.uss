@@ -50,7 +50,7 @@ Customization {
 }
 
 Customization.open {
-  min-height: 111px;
+  min-height: 119px;
 }
 
 .customization {

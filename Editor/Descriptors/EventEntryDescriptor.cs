@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using Aarthificial.Typewriter.Editor.Common;
+﻿using Aarthificial.Typewriter.Editor.Common;
 using Aarthificial.Typewriter.Entries;
 using System.Collections.Generic;
 
@@ -7,7 +6,7 @@ namespace Aarthificial.Typewriter.Editor.Descriptors {
   [CustomEntryDescriptor(typeof(EventEntry))]
   public class EventEntryDescriptor : EntryDescriptor {
     public override string Name => "Event";
-    public override EntryType Type => EntryType.Event;
+    public override EntryVariant Variant => EntryVariant.Event;
     public override string Color => "#8bc34a";
     public override bool Optional => true;
 

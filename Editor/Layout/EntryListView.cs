@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using Aarthificial.Typewriter.Editor.Common;
+﻿using Aarthificial.Typewriter.Editor.Common;
 using Aarthificial.Typewriter.Editor.Descriptors;
 using Aarthificial.Typewriter.Editor.Extensions;
 using Aarthificial.Typewriter.Editor.Lists;
@@ -42,17 +41,17 @@ namespace Aarthificial.Typewriter.Editor.Layout {
 
       _facts.AddManipulator(
         new ContextualMenuManipulator(
-          evt => HandleEntryMenu(evt, EntryType.Fact)
+          evt => HandleEntryMenu(evt, EntryVariant.Fact)
         )
       );
       _events.AddManipulator(
         new ContextualMenuManipulator(
-          evt => HandleEntryMenu(evt, EntryType.Event)
+          evt => HandleEntryMenu(evt, EntryVariant.Event)
         )
       );
       _rules.AddManipulator(
         new ContextualMenuManipulator(
-          evt => HandleEntryMenu(evt, EntryType.Rule)
+          evt => HandleEntryMenu(evt, EntryVariant.Rule)
         )
       );
       _facts.List.CreateItem = () => new BaseEntryListItem();
@@ -129,7 +128,7 @@ namespace Aarthificial.Typewriter.Editor.Layout {
 
     private void HandleAddMenu(ContextualMenuPopulateEvent evt) {
       var first = true;
-      foreach (EntryType type in Enum.GetValues(typeof(EntryType))) {
+      foreach (EntryVariant type in Enum.GetValues(typeof(EntryVariant))) {
         var types = EntryTypeCache.GetTypes(type);
         if (types.Count == 0) {
           continue;
@@ -151,14 +150,14 @@ namespace Aarthificial.Typewriter.Editor.Layout {
 
     private void HandleEntryMenu(
       ContextualMenuPopulateEvent evt,
-      EntryType type
+      EntryVariant variant
     ) {
       if (TypewriterDatabase.Instance == null) {
         return;
       }
 
       evt.menu.AppendSeparator();
-      var visibleTypes = EntryTypeCache.GetTypes(type);
+      var visibleTypes = EntryTypeCache.GetTypes(variant);
       if (visibleTypes.Count > 1) {
         foreach (var visibleType in visibleTypes) {
           evt.menu.AppendAction(

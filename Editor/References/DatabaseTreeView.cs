@@ -1,5 +1,4 @@
 ﻿using Aarthificial.Typewriter.Attributes;
-using Aarthificial.Typewriter.Common;
 using Aarthificial.Typewriter.Editor.Common;
 using Aarthificial.Typewriter.Editor.Descriptors;
 using Aarthificial.Typewriter.Editor.Extensions;
@@ -22,7 +21,7 @@ namespace Aarthificial.Typewriter.Editor.References {
     private readonly BaseEntry _currentEntry;
     private readonly Action<BaseEntry> _selectionHandler;
     public readonly EntryFilterAttribute Filter;
-    private EntryType _filterType;
+    private EntryVariant _filterVariant;
     private int _selectedId = -1;
 
     public DatabaseTreeView(
@@ -33,19 +32,19 @@ namespace Aarthificial.Typewriter.Editor.References {
       Filter = filter;
       _currentEntry = currentEntry;
       _selectionHandler = selectionHandler;
-      _filterType = Filter.Type & Filter.PreferredType;
+      _filterVariant = Filter.Variant & Filter.PreferredVariant;
       showAlternatingRowBackgrounds = true;
       showBorder = true;
       Reload();
     }
 
-    public EntryType FilterType {
+    public EntryVariant FilterVariant {
       set {
-        if (_filterType == value) {
+        if (_filterVariant == value) {
           return;
         }
 
-        _filterType = value;
+        _filterVariant = value;
         Reload();
       }
     }
@@ -75,12 +74,12 @@ namespace Aarthificial.Typewriter.Editor.References {
       var groups = new List<TreeViewItem>();
       BaseEntry firstEntry = null;
       foreach (var table in tables) {
-        var types = _filterType.GetMatching().ToList();
-        var entryLists = Filter.Base == null
+        var types = _filterVariant.GetMatching().ToList();
+        var entryLists = Filter.BaseType == null
           ? types.Select(type => table.GetEntriesOfType(type).ToList()).ToList()
           : types.Select(
               type => table.GetEntriesOfType(type)
-                .Where(entry => Filter.Base.IsInstanceOfType(entry))
+                .Where(entry => Filter.BaseType.IsInstanceOfType(entry))
                 .ToList()
             )
             .ToList();
@@ -170,7 +169,7 @@ namespace Aarthificial.Typewriter.Editor.References {
     }
 
     private class CollectionTreeViewItem : TreeViewItem {
-      private readonly EntryType _type;
+      private readonly EntryVariant _variant;
       public readonly BaseEntry Entry;
 
       public CollectionTreeViewItem(BaseEntry entry, int id) : base(id, 0) {
@@ -180,12 +179,12 @@ namespace Aarthificial.Typewriter.Editor.References {
             entry.GetType(),
             out var descriptor
           )) {
-          _type = descriptor.Type;
+          _variant = descriptor.Variant;
         }
       }
 
       public override Texture2D icon {
-        get => Entry == null ? null : _type.GetIcon();
+        get => Entry == null ? null : _variant.GetIcon();
         set { }
       }
     }

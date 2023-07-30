@@ -1,5 +1,4 @@
 ﻿using Aarthificial.Typewriter.Attributes;
-using Aarthificial.Typewriter.Common;
 using Aarthificial.Typewriter.References;
 using System;
 using System.Runtime.CompilerServices;
@@ -8,11 +7,8 @@ using UnityEngine;
 namespace Aarthificial.Typewriter.Entries {
   [Serializable]
   public class RuleEntry : BaseEntry {
-    [Serializable]
-    public struct Dispatcher {
-      [EntryFilter(PreferredType = EntryType.Event)]
-      public EntryReference Reference;
-    }
+    [SerializeField] public Dispatcher[] OnApply = Array.Empty<Dispatcher>();
+    [SerializeField] public Dispatcher[] OnInvoke = Array.Empty<Dispatcher>();
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     protected static void Dispatch(
@@ -26,9 +22,6 @@ namespace Aarthificial.Typewriter.Entries {
         }
       }
     }
-
-    [SerializeField] public Dispatcher[] OnApply = Array.Empty<Dispatcher>();
-    [SerializeField] public Dispatcher[] OnInvoke = Array.Empty<Dispatcher>();
 
     public override void Apply(ITypewriterContext context) {
       base.Apply(context);
@@ -46,6 +39,12 @@ namespace Aarthificial.Typewriter.Entries {
 
     public override void RemoveFromTable(DatabaseTable table) {
       table.Rules.Remove(this);
+    }
+
+    [Serializable]
+    public struct Dispatcher {
+      [EntryFilter(PreferredVariant = EntryVariant.Event)]
+      public EntryReference Reference;
     }
   }
 }

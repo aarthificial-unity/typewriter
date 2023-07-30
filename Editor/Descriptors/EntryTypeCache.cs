@@ -1,5 +1,4 @@
 ﻿using Aarthificial.Typewriter.Attributes;
-using Aarthificial.Typewriter.Common;
 using Aarthificial.Typewriter.Editor.Common;
 using Aarthificial.Typewriter.Editor.Extensions;
 using Aarthificial.Typewriter.Entries;
@@ -60,12 +59,12 @@ namespace Aarthificial.Typewriter.Editor.Descriptors {
       }
     }
 
-    public static List<EntryDescriptor> GetTypes(EntryType entryType) {
+    public static List<EntryDescriptor> GetTypes(EntryVariant entryVariant) {
       var visibleTypes = new List<EntryDescriptor>();
       var optionalTypes = new List<EntryDescriptor>();
 
       foreach (var descriptor in _lookup.Values) {
-        if (!entryType.HasFlag(descriptor.Type)) {
+        if (!entryVariant.HasFlag(descriptor.Variant)) {
           continue;
         }
 
@@ -105,7 +104,7 @@ namespace Aarthificial.Typewriter.Editor.Descriptors {
         return false;
       }
 
-      if (!filter.Type.HasFlag(descriptor.Type)) {
+      if (!filter.Variant.HasFlag(descriptor.Variant)) {
         return false;
       }
 
@@ -115,7 +114,7 @@ namespace Aarthificial.Typewriter.Editor.Descriptors {
         return false;
       }
 
-      if (filter.Base != null && !filter.Base.IsInstanceOfType(entry)) {
+      if (filter.BaseType != null && !filter.BaseType.IsInstanceOfType(entry)) {
         return false;
       }
 
@@ -123,15 +122,15 @@ namespace Aarthificial.Typewriter.Editor.Descriptors {
     }
 
     internal static string GetName(this EntryFilterAttribute filter) {
-      if (filter.Base == null) {
-        return filter.Type.ToString();
+      if (filter.BaseType == null) {
+        return filter.Variant.ToString();
       }
 
-      if (TryGetDescriptor(filter.Base, out var descriptor)) {
+      if (TryGetDescriptor(filter.BaseType, out var descriptor)) {
         return descriptor.Name;
       }
 
-      return filter.Base.Name;
+      return filter.BaseType.Name;
     }
 
     internal static BaseEntry FindFirstMatch(this EntryFilterAttribute filter) {
@@ -144,11 +143,11 @@ namespace Aarthificial.Typewriter.Editor.Descriptors {
           continue;
         }
 
-        foreach (var type in filter.Type.GetMatching()) {
+        foreach (var type in filter.Variant.GetMatching()) {
           var entries = table.GetEntriesOfType(type);
-          if (filter.Base != null) {
+          if (filter.BaseType != null) {
             foreach (var entry in entries) {
-              if (filter.Base.IsInstanceOfType(entry)) {
+              if (filter.BaseType.IsInstanceOfType(entry)) {
                 return entry;
               }
             }

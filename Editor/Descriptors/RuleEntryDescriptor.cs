@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using Aarthificial.Typewriter.Editor.Common;
+﻿using Aarthificial.Typewriter.Editor.Common;
 using Aarthificial.Typewriter.Entries;
 using System.Collections.Generic;
 using UnityEditor;
@@ -8,7 +7,7 @@ namespace Aarthificial.Typewriter.Editor.Descriptors {
   [CustomEntryDescriptor(typeof(RuleEntry))]
   public class RuleEntryDescriptor : EntryDescriptor {
     public override string Name => "Rule";
-    public override EntryType Type => EntryType.Rule;
+    public override EntryVariant Variant => EntryVariant.Rule;
     public override string Color => "#00bcd4";
     public override bool Optional => false;
 

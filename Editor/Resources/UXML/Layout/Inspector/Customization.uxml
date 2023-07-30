@@ -10,7 +10,7 @@
       view-data-key="Criteria"
       selection-type="Single"
       reorderable="true"
-      style="min-height: 72px; flex-grow: 1;"
+      style="min-height: 72px; flex-grow: 1; margin-bottom: 8px;"
     />
     <Aarthificial.Typewriter.Editor.Lists.EditableListView
       name="Modifications"
@@ -19,7 +19,7 @@
       view-data-key="Modifications"
       selection-type="Single"
       reorderable="true"
-      style="min-height: 72px; flex-grow: 1;"
+      style="min-height: 72px; flex-grow: 1; margin-bottom: 8px;"
     />
     <Aarthificial.Typewriter.Editor.Lists.EditableListView
       name="OnApply"
@@ -28,7 +28,7 @@
       view-data-key="OnApply"
       selection-type="Single"
       reorderable="true"
-      style="min-height: 72px; flex-grow: 1;"
+      style="min-height: 72px; flex-grow: 1; margin-bottom: 8px;"
     />
     <Aarthificial.Typewriter.Editor.Lists.EditableListView
       name="OnInvoke"
@@ -37,7 +37,7 @@
       view-data-key="OnInvoke"
       selection-type="Single"
       reorderable="true"
-      style="min-height: 72px; flex-grow: 1;"
+      style="min-height: 72px; flex-grow: 1; margin-bottom: 8px;"
     />
   </Aarthificial.Typewriter.Editor.Layout.TabbedView>
 </ui:UXML>

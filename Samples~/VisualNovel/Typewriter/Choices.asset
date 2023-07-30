@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33d0878fa1be1f546a2a65661326a877, type: 3}
   m_Name: Choices
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   TableName: Choices
   Rules:
   - rid: 5862282142054350853
@@ -32,10 +32,10 @@ MonoBehaviour:
         ID: 1388545
         Key: on_start_conversation
         Scope:
-          InternalID: 0
+          InternalID: 1388553
         Triggers:
           List: []
-        Once: 0
+        Once: 1
         Padding: 0
         Criteria:
         - FactReference:
@@ -54,7 +54,7 @@ MonoBehaviour:
         Triggers:
           List:
           - InternalID: 1388545
-        Once: 1
+        Once: 0
         Padding: 0
         Criteria: []
         Modifications: []

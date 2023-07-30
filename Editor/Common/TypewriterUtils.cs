@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using Aarthificial.Typewriter.Entries;
+﻿using Aarthificial.Typewriter.Entries;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
@@ -45,13 +44,11 @@ namespace Aarthificial.Typewriter.Editor.Common {
       Events.OnDatabaseCreated();
     }
 
-    public static void RecreateLookup() {
-      if (TypewriterDatabase.Instance == null) {
-        return;
+    public static void RecreateRelations() {
+      if (TypewriterDatabase.Instance != null) {
+        TypewriterDatabase.Instance.RecreateRelations();
+        Events.OnLookupCreated();
       }
-
-      TypewriterDatabase.Instance.CreateLookup();
-      Events.OnLookupCreated();
     }
 
     public static string GetKey(this BaseEntry entry) {

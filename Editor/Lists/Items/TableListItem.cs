@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine.UIElements;
 
 namespace Aarthificial.Typewriter.Editor.Lists.Items {

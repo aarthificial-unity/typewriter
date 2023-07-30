@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using UnityEditor;
+﻿using UnityEditor;
 
 namespace Aarthificial.Typewriter.Editor.Common {
   public class TypewriterModificationProcessor : AssetModificationProcessor {

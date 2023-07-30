@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using System.Linq;
+﻿using System.Linq;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;

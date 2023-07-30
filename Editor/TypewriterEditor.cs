@@ -7,19 +7,14 @@ using UnityEngine.UIElements;
 
 namespace Aarthificial.Typewriter.Editor {
   public class TypewriterEditor : EditorWindow {
-    public static TypewriterEditor Instance { get; private set; }
-
-    private VisualElement _main;
     private DatabaseView _database;
     private InspectorView _inspector;
-    private TabbedView _tabs;
-    private Toolbar _toolbar;
     private bool _isPortrait;
 
-    [MenuItem("Tools/Typewriter")]
-    public static void Open() {
-      GetWindow<TypewriterEditor>();
-    }
+    private VisualElement _main;
+    private TabbedView _tabs;
+    private Toolbar _toolbar;
+    public static TypewriterEditor Instance { get; private set; }
 
     private void OnEnable() {
       Instance = this;
@@ -47,6 +42,11 @@ namespace Aarthificial.Typewriter.Editor {
       _database.SelectionChanged += Refresh;
       HandleGeometryChanged(null);
       Refresh();
+    }
+
+    [MenuItem("Tools/Typewriter")]
+    public static void Open() {
+      GetWindow<TypewriterEditor>();
     }
 
     private void HandleGeometryChanged(GeometryChangedEvent _) {

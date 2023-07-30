@@ -7,14 +7,13 @@ using UnityEngine.UIElements;
 
 namespace Aarthificial.Typewriter.Editor.Lists {
   public class EditableListView : BindableElement {
+    private readonly Label _title;
     public readonly SimpleList List;
 
     private SerializedProperty _property;
 
     public Action<int> CreateElement;
     public Action<IEnumerable<SimpleList.ItemData>> RemoveElements;
-
-    private readonly Label _title;
 
     public EditableListView() : this("UXML/Lists/EditableListView") { }
 
@@ -125,13 +124,13 @@ namespace Aarthificial.Typewriter.Editor.Lists {
     public new class UxmlTraits : BindableElement.UxmlTraits {
       private readonly UxmlBoolAttributeDescription _reorderable =
         new() { name = "reorderable" };
+
+      private readonly UxmlEnumAttributeDescription<SelectionType>
+        _selectionType = new() { name = "selection-type" };
       private readonly UxmlStringAttributeDescription _title =
         new() { name = "title" };
       private readonly UxmlStringAttributeDescription _tooltip =
         new() { name = "title-tooltip" };
-
-      private readonly UxmlEnumAttributeDescription<SelectionType>
-        _selectionType = new() { name = "selection-type" };
 
       public override IEnumerable<UxmlChildElementDescription>
         uxmlChildElementsDescription {

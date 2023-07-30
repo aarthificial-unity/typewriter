@@ -1,5 +1,4 @@
 ﻿using Aarthificial.Typewriter.Attributes;
-using Aarthificial.Typewriter.Common;
 using Aarthificial.Typewriter.Editor.Common;
 using Aarthificial.Typewriter.Editor.Descriptors;
 using Aarthificial.Typewriter.Entries;
@@ -11,6 +10,8 @@ using UnityEngine;
 namespace Aarthificial.Typewriter.Editor.References {
   [CustomPropertyDrawer(typeof(EntryReference))]
   public class EntryReferencePropertyDrawer : PropertyDrawer {
+    internal static bool RecreateRelations;
+
     public override void OnGUI(
       Rect position,
       SerializedProperty property,
@@ -20,18 +21,30 @@ namespace Aarthificial.Typewriter.Editor.References {
         nameof(EntryReference.InternalID)
       );
       var filter = GetFilter();
-      var shouldRecreateLookup = ShouldRecreateLookup();
-
       EditorGUI.BeginProperty(position, label, property);
       position = EditorGUI.PrefixLabel(position, label);
-      CollectionEntryField(
+      var recreateRelations = RecreateRelations;
+      var previousId = idProperty.intValue;
+
+      idProperty.intValue = CollectionEntryPicker(
         position,
-        idProperty,
+        previousId,
+        id => {
+          idProperty.intValue = id;
+          idProperty.serializedObject.ApplyModifiedProperties();
+          if (recreateRelations) {
+            TypewriterUtils.RecreateRelations();
+          }
+        },
         position,
-        filter,
-        shouldRecreateLookup
+        filter
       );
+
       EditorGUI.EndProperty();
+
+      if (idProperty.intValue != previousId && recreateRelations) {
+        TypewriterUtils.RecreateRelations();
+      }
     }
 
     protected virtual EntryFilterAttribute GetFilter() {
@@ -42,36 +55,6 @@ namespace Aarthificial.Typewriter.Editor.References {
       return attributes.Length > 0
         ? (EntryFilterAttribute)attributes[0]
         : new EntryFilterAttribute();
-    }
-
-    protected bool ShouldRecreateLookup() {
-      var attributes = fieldInfo.GetCustomAttributes(
-        typeof(RecreateLookupAttribute),
-        false
-      );
-      return attributes.Length > 0;
-    }
-
-    public static void CollectionEntryField(
-      Rect position,
-      SerializedProperty property,
-      Rect popupPosition,
-      EntryFilterAttribute filter,
-      bool recreateLookup = false
-    ) {
-      property.intValue = CollectionEntryPicker(
-        position,
-        property.intValue,
-        id => {
-          property.intValue = id;
-          property.serializedObject.ApplyModifiedProperties();
-          if (recreateLookup) {
-            TypewriterUtils.RecreateLookup();
-          }
-        },
-        popupPosition,
-        filter
-      );
     }
 
     public static int CollectionEntryPicker(
@@ -125,9 +108,9 @@ namespace Aarthificial.Typewriter.Editor.References {
             entry.GetType(),
             out var descriptor
           )) {
-          label.image = descriptor.Type.GetIcon();
+          label.image = descriptor.Variant.GetIcon();
           filter = filter.Copy();
-          filter.PreferredType |= descriptor.Type;
+          filter.PreferredVariant |= descriptor.Variant;
         }
 
         if (position.width < size.x) {
@@ -198,6 +181,12 @@ namespace Aarthificial.Typewriter.Editor.References {
       return fetch;
     }
 
+    private static bool TryParsePath(string path, out int id) {
+      var lastSlash = path.LastIndexOf('/');
+      var substring = path.AsSpan(lastSlash + 1);
+      return int.TryParse(substring, out id);
+    }
+
     public static class Styles {
       public static readonly GUIContent SelectIcon =
         EditorGUIUtility.IconContent("Animation.FilterBySelection");
@@ -205,12 +194,6 @@ namespace Aarthificial.Typewriter.Editor.References {
       public static readonly GUIStyle IconButton = new("MiniButton") {
         padding = new RectOffset(0, 0, 0, 0),
       };
-    }
-
-    private static bool TryParsePath(string path, out int id) {
-      var lastSlash = path.LastIndexOf('/');
-      var substring = path.AsSpan(lastSlash + 1);
-      return int.TryParse(substring, out id);
     }
   }
 }

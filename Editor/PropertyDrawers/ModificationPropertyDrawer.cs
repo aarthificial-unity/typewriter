@@ -29,7 +29,6 @@ namespace Aarthificial.Typewriter.Editor.PropertyDrawers {
 
       position.x += position.width;
       position.width = 40;
-      EditorGUI.BeginChangeCheck();
       EditorGUI.PropertyField(position, typeProperty, GUIContent.none);
 
       position.x += position.width + 2;

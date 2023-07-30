@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33d0878fa1be1f546a2a65661326a877, type: 3}
   m_Name: Linear
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   TableName: Linear
   Rules:
   - rid: 5862282233427787781
@@ -31,10 +31,10 @@ MonoBehaviour:
         ID: 1388544
         Key: on_start_conversation
         Scope:
-          InternalID: 0
+          InternalID: 1388553
         Triggers:
           List: []
-        Once: 0
+        Once: 1
         Padding: 0
         Criteria: []
         Modifications:

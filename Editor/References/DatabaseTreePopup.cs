@@ -12,25 +12,28 @@ namespace Aarthificial.Typewriter.Editor.References {
     private static readonly GUIStyle _buttonToggleStyle = new("Button") {
       padding = new RectOffset(0, 0, 0, 0),
     };
-    private readonly List<(EntryType, GUIContent)> _availableTypes;
+    private readonly List<(EntryVariant, GUIContent)> _availableTypes;
 
     private readonly SearchField _searchField;
     private readonly DatabaseTreeView _treeView;
-    private EntryType _filterType;
+    private EntryVariant _filterVariant;
     private bool _shouldClose;
 
     public DatabaseTreePopup(DatabaseTreeView contents) {
       var filter = contents.Filter;
-      _filterType = filter.Type & filter.PreferredType;
+      _filterVariant = filter.Variant & filter.PreferredVariant;
 
-      if (filter.Base != null
-        && EntryTypeCache.TryGetDescriptor(filter.Base, out var descriptor)) {
-        _availableTypes = new List<(EntryType, GUIContent)> {
-          (descriptor.Type,
-            new GUIContent { image = descriptor.Type.GetIcon() }),
+      if (filter.BaseType != null
+        && EntryTypeCache.TryGetDescriptor(
+          filter.BaseType,
+          out var descriptor
+        )) {
+        _availableTypes = new List<(EntryVariant, GUIContent)> {
+          (descriptor.Variant,
+            new GUIContent { image = descriptor.Variant.GetIcon() }),
         };
       } else {
-        _availableTypes = filter.Type.GetMatching()
+        _availableTypes = filter.Variant.GetMatching()
           .Select(type => (type, new GUIContent { image = type.GetIcon() }))
           .ToList();
       }
@@ -75,20 +78,20 @@ namespace Aarthificial.Typewriter.Editor.References {
       foreach (var (entryType, guiContent) in _availableTypes) {
         if (GUI.Toggle(
             toggleRect,
-            _filterType.HasFlag(entryType),
+            _filterVariant.HasFlag(entryType),
             guiContent,
             _buttonToggleStyle
           )) {
-          _filterType |= entryType;
+          _filterVariant |= entryType;
         } else {
-          _filterType &= ~entryType;
+          _filterVariant &= ~entryType;
         }
 
         toggleRect.x += toggleRect.width;
       }
 
       if (EditorGUI.EndChangeCheck()) {
-        _treeView.FilterType = _filterType;
+        _treeView.FilterVariant = _filterVariant;
       }
 
       _treeView.searchString = _searchField.OnGUI(

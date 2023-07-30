@@ -1,6 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-
-namespace Aarthificial.Typewriter.Tools {
+﻿namespace Aarthificial.Typewriter.Tools {
   public struct TypewriterWatcher {
     private int _lastUpdate;
 

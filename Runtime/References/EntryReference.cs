@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using Aarthificial.Typewriter.Entries;
+﻿using Aarthificial.Typewriter.Entries;
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;

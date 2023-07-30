@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using Aarthificial.Typewriter.Editor.Extensions;
+﻿using Aarthificial.Typewriter.Editor.Extensions;
 using Aarthificial.Typewriter.Entries;
 using UnityEditor;
 using UnityEditor.UIElements;

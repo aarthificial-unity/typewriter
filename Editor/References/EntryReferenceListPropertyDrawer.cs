@@ -1,11 +1,11 @@
 ﻿using Aarthificial.Typewriter.Attributes;
-using Aarthificial.Typewriter.Editor.References;
+using Aarthificial.Typewriter.Editor.Common;
 using Aarthificial.Typewriter.Entries;
 using Aarthificial.Typewriter.References;
 using UnityEditor;
 using UnityEngine;
 
-namespace Aarthificial.Typewriter.Editor.PropertyDrawers {
+namespace Aarthificial.Typewriter.Editor.References {
   [CustomPropertyDrawer(typeof(BaseEntry.TriggerList))]
   public class EntryReferenceListPropertyDrawer : PropertyDrawer {
     private static readonly EntryFilterAttribute _filter = new() {
@@ -37,8 +37,8 @@ namespace Aarthificial.Typewriter.Editor.PropertyDrawers {
 
       var previewPosition = position;
       previewPosition.height = 24;
-      previewPosition.x += EditorGUIUtility.labelWidth;
-      previewPosition.width -= EditorGUIUtility.labelWidth + 50;
+      previewPosition.x += EditorGUIUtility.labelWidth + 2;
+      previewPosition.width -= EditorGUIUtility.labelWidth + 52;
 
       if (EntryReferencePropertyDrawer.DropEntry(
           previewPosition,
@@ -53,31 +53,40 @@ namespace Aarthificial.Typewriter.Editor.PropertyDrawers {
       var current = new Event(Event.current);
 
       EditorGUI.BeginProperty(position, label, property);
+      EntryReferencePropertyDrawer.RecreateRelations = true;
       if (isHover) {
         Event.current.Use();
       }
 
+      var length = listProperty.arraySize;
       EditorGUI.PropertyField(
         position,
         listProperty,
         new GUIContent(property.displayName),
         true
       );
+      if (length != listProperty.arraySize) {
+        listProperty.serializedObject.ApplyModifiedProperties();
+        TypewriterUtils.RecreateRelations();
+      }
+
       if (isHover) {
         Event.current = current;
       }
 
-      EntryReferencePropertyDrawer.CollectionEntryPicker(
+      var newId = EntryReferencePropertyDrawer.CollectionEntryPicker(
         previewPosition,
         firstId,
-        id => {
-          SetID(id, listProperty);
-          property.serializedObject.ApplyModifiedProperties();
-        },
+        id => SetID(id, listProperty),
         previewPosition,
         _filter
       );
 
+      if (newId != firstId) {
+        SetID(newId, listProperty);
+      }
+
+      EntryReferencePropertyDrawer.RecreateRelations = false;
       EditorGUI.EndProperty();
     }
 
@@ -93,6 +102,9 @@ namespace Aarthificial.Typewriter.Editor.PropertyDrawers {
       } else if (listProperty.arraySize > 0) {
         listProperty.DeleteArrayElementAtIndex(0);
       }
+
+      listProperty.serializedObject.ApplyModifiedProperties();
+      TypewriterUtils.RecreateRelations();
     }
   }
 }

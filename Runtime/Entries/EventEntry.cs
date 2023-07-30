@@ -1,5 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
-using System;
+﻿using System;
 
 namespace Aarthificial.Typewriter.Entries {
   [Serializable]

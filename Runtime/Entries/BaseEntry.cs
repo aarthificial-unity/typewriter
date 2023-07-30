@@ -1,6 +1,5 @@
 ﻿using Aarthificial.Typewriter.Attributes;
 using Aarthificial.Typewriter.Blackboards;
-using Aarthificial.Typewriter.Common;
 using Aarthificial.Typewriter.References;
 using System;
 using System.Collections.Generic;
@@ -9,17 +8,12 @@ using UnityEngine;
 namespace Aarthificial.Typewriter.Entries {
   [Serializable]
   public abstract class BaseEntry : IComparable<BaseEntry> {
-    [Serializable]
-    public struct TriggerList {
-      [RecreateLookup] public EntryReference[] List;
-    }
-
     public int ID;
     public string Key;
 
     [EntryFilter(
-      Type = EntryType.Fact,
-      Base = typeof(ScopeEntry),
+      Variant = EntryVariant.Fact,
+      BaseType = typeof(ScopeEntry),
       AllowEmpty = true
     )]
     public EntryReference Scope;
@@ -85,6 +79,11 @@ namespace Aarthificial.Typewriter.Entries {
 
     public virtual void Invoke(ITypewriterContext context) {
       TypewriterDatabase.Instance.OnEntryEvent(context, this);
+    }
+
+    [Serializable]
+    public struct TriggerList {
+      public EntryReference[] List;
     }
   }
 }
