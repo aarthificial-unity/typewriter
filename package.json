@@ -3,11 +3,10 @@
   "displayName": "Typewriter",
   "version": "0.0.0",
   "unity": "2021.1",
-  "description": "A tool for creating context-aware dialogue systems.",
+  "description": "A tool for creating context-aware dialogue systems in Unity.",
   "keywords": [
     "unity",
-    "unity3d",
-    "aarthificial",
+    "dialogue-sustems",
     "utility"
   ],
   "homepage": "https://typewriter.aarthificial.com",
@@ -22,6 +21,9 @@
     "url": "git+ssh://git@github.com/aarthificial-gamedev/typewriter.git"
   },
   "license": "MIT",
+  "licensesUrl": "https://github.com/aarthificial-gamedev/typewriter/blob/main/LICENSE.md",
+  "documentationUrl": "https://typewriter.aarthificial.com",
+  "changelogUrl": "https://github.com/aarthificial-gamedev/typewriter/blob/main/CHANGELOG.md",
   "author": {
     "name": "aarthificial",
     "email": "contact@aarthificial.com",
