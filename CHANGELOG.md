@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/aarthificial-gamedev/typewriter/compare/v1.0.0...v1.0.1) (2023-07-30)
+
+
+### Bug Fixes
+
+* update package.json ([5dd141f](https://github.com/aarthificial-gamedev/typewriter/commit/5dd141fd3948ddc5a21e553a3b3056f913356105))
+
 # 1.0.0 (2023-07-30)
 
 
