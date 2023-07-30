@@ -31,7 +31,18 @@ namespace Aarthificial.Typewriter.References {
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public T GetEntry<T>() where T : BaseEntry {
+      TryGetEntry(out T entry);
+      return entry;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public readonly bool TryGetEntry(out BaseEntry entry) {
+      return TypewriterDatabase.Instance.TryGetEntry(InternalID, out entry);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public readonly bool TryGetEntry<T>(out T entry) where T : BaseEntry {
       return TypewriterDatabase.Instance.TryGetEntry(InternalID, out entry);
     }
 

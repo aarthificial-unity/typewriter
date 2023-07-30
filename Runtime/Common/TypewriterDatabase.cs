@@ -23,7 +23,7 @@ namespace Aarthificial.Typewriter.Common {
     private readonly Dictionary<int, List<BaseEntry>> _ruleLookup = new();
     private readonly Dictionary<int, DatabaseTable> _tableLookup = new();
     private bool _lookupCreated;
-    public int _changeCounter;
+    private int _changeCounter = 1;
 
     public static TypewriterDatabase Instance {
       get {
@@ -45,7 +45,7 @@ namespace Aarthificial.Typewriter.Common {
     }
 
     private void OnEnable() {
-      _changeCounter = 0;
+      _changeCounter = 1;
       if (!HasCachedInstance) {
         HasCachedInstance = true;
         _instance = this;
@@ -92,7 +92,6 @@ namespace Aarthificial.Typewriter.Common {
     }
 
     public bool HasChangedSince(ref int change) {
-      // Debug.Log($"Typewriter: {frame} vs {_lastChange}");
       if (change < _changeCounter) {
         change = _changeCounter;
         return true;

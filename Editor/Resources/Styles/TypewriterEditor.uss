@@ -35,7 +35,6 @@
 }
 
 .inspector-toolbar {
-  /*background-color: var(--unity-colors-box-background);*/
   border-color: var(--unity-colors-window-border);
   height: 36px;
   border-bottom-width: 1px;
@@ -44,10 +43,18 @@
   flex-direction: row;
 }
 
-.customization {
-  flex-direction: column-reverse;
+Customization {
   border-width: 1px 0 0 0;
   border-color: var(--unity-colors-default-border);
+  min-height: 39px;
+}
+
+Customization.open {
+  min-height: 111px;
+}
+
+.customization {
+  flex-direction: column-reverse;
 }
 
 .customization .unity-list-view__empty-label {

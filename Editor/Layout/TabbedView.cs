@@ -1,4 +1,5 @@
 ﻿using Aarthificial.Typewriter.Editor.Lists;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.UIElements;
@@ -7,6 +8,8 @@ using UnityEngine.UIElements;
 
 namespace Aarthificial.Typewriter.Editor.Layout {
   public class TabbedView : VisualElement {
+    public event Action<int> TabChanged;
+
     private readonly VisualElement _tabContainer;
     private List<VisualElement> _panes;
     private List<ToolbarToggle> _tabs;
@@ -76,6 +79,8 @@ namespace Aarthificial.Typewriter.Editor.Layout {
           _panes[index].style.display = DisplayStyle.None;
         }
       }
+
+      TabChanged?.Invoke(value ? index : -1);
     }
 
     public new class UxmlFactory : UxmlFactory<TabbedView, UxmlTraits> { }

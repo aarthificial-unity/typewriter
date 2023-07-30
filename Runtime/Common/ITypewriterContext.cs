@@ -3,8 +3,5 @@
 namespace Aarthificial.Typewriter.Common {
   public interface ITypewriterContext {
     public bool TryGetBlackboard(int scope, out IBlackboard blackboard);
-
-    public void OnBegin() { }
-    public void OnFinish() { }
   }
 }

@@ -2,7 +2,6 @@
   <Aarthificial.Typewriter.Editor.Layout.TabbedView
     name="container"
     select-any="false"
-    style="margin-top: 0;"
   >
     <Aarthificial.Typewriter.Editor.Lists.EditableListView
       name="Criteria"

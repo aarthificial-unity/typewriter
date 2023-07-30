@@ -1,4 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="True">
-  <ui:VisualElement name="tabs" class="inspector-tabs"
-                    style="flex-direction: row;"/>
+  <ui:VisualElement
+    name="tabs"
+    class="inspector-tabs"
+    style="flex-direction: row;"
+  />
 </ui:UXML>

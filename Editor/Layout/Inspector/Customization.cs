@@ -27,6 +27,7 @@ namespace Aarthificial.Typewriter.Editor.Layout.Inspector {
 
       _container = this.Q<TabbedView>("container");
       _container.AddToClassList("customization");
+      _container.TabChanged += index => EnableInClassList("open", index >= 0);
       foreach (var (propertyName, elementName) in _possibleProperties) {
         var list = this.Q<EditableListView>(elementName);
         list.List.CreateItem = CreateListItem;
