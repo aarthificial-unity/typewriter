@@ -6,7 +6,7 @@
   "description": "A tool for creating context-aware dialogue systems in Unity.",
   "keywords": [
     "unity",
-    "dialogue-sustems",
+    "dialogue-systems",
     "utility"
   ],
   "homepage": "https://typewriter.aarthificial.com",
@@ -21,7 +21,7 @@
     "url": "git+ssh://git@github.com/aarthificial-gamedev/typewriter.git"
   },
   "license": "MIT",
-  "licensesUrl": "https://github.com/aarthificial-gamedev/typewriter/blob/main/LICENSE.md",
+  "licensesUrl": "https://github.com/aarthificial-gamedev/typewriter/blob/main/LICENSE",
   "documentationUrl": "https://typewriter.aarthificial.com",
   "changelogUrl": "https://github.com/aarthificial-gamedev/typewriter/blob/main/CHANGELOG.md",
   "author": {
