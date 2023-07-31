@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/aarthificial-gamedev/typewriter/compare/v1.1.0...v1.1.1) (2023-07-31)
+
+
+### Bug Fixes
+
+* remove unnecessary meta file ([44d8b4b](https://github.com/aarthificial-gamedev/typewriter/commit/44d8b4b1f9643b62b730ad19bd38b8689e5fedf5))
+
 # [1.1.0](https://github.com/aarthificial-gamedev/typewriter/compare/v1.0.1...v1.1.0) (2023-07-31)
 
 
