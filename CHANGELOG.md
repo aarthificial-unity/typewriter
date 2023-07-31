@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/aarthificial-gamedev/typewriter/compare/v1.0.1...v1.1.0) (2023-07-31)
+
+
+### Bug Fixes
+
+* remove layout glitches ([b318646](https://github.com/aarthificial-gamedev/typewriter/commit/b3186468e533b081e6c2270730ec4addc27a991c))
+
+
+### Features
+
+* add visual novel sample ([12ecd07](https://github.com/aarthificial-gamedev/typewriter/commit/12ecd07207929b79e6e1f82a7558f51f9844873e))
+
 ## [1.0.1](https://github.com/aarthificial-gamedev/typewriter/compare/v1.0.0...v1.0.1) (2023-07-30)
 
 
