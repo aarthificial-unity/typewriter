@@ -50,4 +50,4 @@ placed in its own table.
 
 [Discord server]: https://www.patreon.com/posts/patron-only-53003221
 [installation]: https://docs.unity3d.com/Manual/upm-ui-giturl.html
-[instructions]: https://www.patreon.com/aarthificial
+[instructions]: https://www.patreon.com/posts/typewriter-early-86967465
