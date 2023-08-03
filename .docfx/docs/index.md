@@ -33,4 +33,4 @@ systems. Good programming knowledge is necessary to use it.
 [Valve]: https://youtu.be/tAbBID3N64A
 [Patreon]: https://www.patreon.com/aarthificial
 [YouTube]: https://www.youtube.com/@aarthificial/join
-[instructions]: https://www.patreon.com/aarthificial
+[instructions]: https://www.patreon.com/posts/typewriter-early-86967465
