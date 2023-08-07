@@ -28,7 +28,7 @@ namespace Aarthificial.Typewriter {
 #if UNITY_EDITOR
     private static int _sequence = EditorPrefs.GetInt(_sequencePrefKey, 0);
 #else
-     private static uint _sequence = 0;
+     private static int _sequence = 0;
 #endif
 
     private static int Sequence {
