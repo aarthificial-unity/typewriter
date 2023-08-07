@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/aarthificial-gamedev/typewriter/compare/v1.1.1...v1.1.2) (2023-08-07)
+
+
+### Bug Fixes
+
+* fix sequence type in build mode ([600d5c1](https://github.com/aarthificial-gamedev/typewriter/commit/600d5c183a831c60ef34ab38a7a8a27f0f011d45))
+
 ## [1.1.1](https://github.com/aarthificial-gamedev/typewriter/compare/v1.1.0...v1.1.1) (2023-07-31)
 
 
