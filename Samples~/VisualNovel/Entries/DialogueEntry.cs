@@ -50,7 +50,7 @@ public class DialogueEntry : RuleEntry {
   /// We can use the <see cref="EntryFilterAttribute"/> to restrict the entries
   /// we can reference to a specific type.
   /// </remarks>
-  [EntryFilter(Base = typeof(SpeakerEntry))]
+  [EntryFilter(BaseType = typeof(SpeakerEntry))]
   [SerializeField]
   private EntryReference _speaker;
 }

@@ -1,4 +1,4 @@
-﻿using Aarthificial.Typewriter.Common;
+﻿using Aarthificial.Typewriter;
 using Aarthificial.Typewriter.References;
 using Aarthificial.Typewriter.Tools;
 using UnityEngine;

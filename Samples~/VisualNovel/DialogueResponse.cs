@@ -1,6 +1,5 @@
-﻿using Aarthificial.Typewriter.Common;
+﻿using Aarthificial.Typewriter;
 using Aarthificial.Typewriter.Entries;
-using Aarthificial.Typewriter.Tools;
 using UnityEngine;
 using UnityEngine.UI;
 

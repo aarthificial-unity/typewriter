@@ -1,5 +1,5 @@
 ﻿using Aarthificial.Typewriter.Blackboards;
-using Aarthificial.Typewriter.Common;
+using Aarthificial.Typewriter;
 using System;
 
 /// <summary>
