@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/aarthificial-gamedev/typewriter/compare/v1.1.2...v1.1.3) (2023-08-08)
+
+
+### Bug Fixes
+
+* fix namespaces in samples ([091e9e2](https://github.com/aarthificial-gamedev/typewriter/commit/091e9e2155c5222f9b4d10ab5a6204c889af2730))
+
 ## [1.1.2](https://github.com/aarthificial-gamedev/typewriter/compare/v1.1.1...v1.1.2) (2023-08-07)
 
 
