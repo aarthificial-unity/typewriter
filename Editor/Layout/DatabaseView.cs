@@ -15,6 +15,7 @@ namespace Aarthificial.Typewriter.Editor.Layout {
   public class DatabaseView : VisualElement {
     private readonly VisualElement _content;
     private readonly Button _create;
+    private readonly Button _refresh;
     private readonly VisualElement _empty;
     private readonly EntryListView _entries;
     private readonly TableListView _tables;
@@ -35,6 +36,7 @@ namespace Aarthificial.Typewriter.Editor.Layout {
       _content = this.Q<VisualElement>("content");
       _empty = this.Q<VisualElement>("empty");
       _create = this.Q<Button>("create");
+      _refresh = this.Q<Button>("refresh");
       _tables = this.Q<TableListView>("tables");
       _entries = this.Q<EntryListView>("entries");
 
@@ -43,6 +45,7 @@ namespace Aarthificial.Typewriter.Editor.Layout {
 
       Undo.undoRedoPerformed += UndoRedoPerformed;
       _create.clicked += TypewriterUtils.CreateDatabase;
+      _refresh.clicked += TypewriterUtils.RefreshDatabase;
 
       if (TypewriterDatabase.Instance == null) {
         HandleDeleteDatabase();
@@ -61,6 +64,7 @@ namespace Aarthificial.Typewriter.Editor.Layout {
       TypewriterUtils.Events.EntrySelected -= HandleEntrySelected;
       TypewriterUtils.Events.TableSelected -= HandleTableSelected;
       _create.clicked -= TypewriterUtils.CreateDatabase;
+      _refresh.clicked -= TypewriterUtils.RefreshDatabase;
       Undo.undoRedoPerformed -= UndoRedoPerformed;
     }
 

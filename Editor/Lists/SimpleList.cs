@@ -136,6 +136,7 @@ namespace Aarthificial.Typewriter.Editor.Lists {
       Source.Clear();
 
       if (_property != null) {
+        _property.serializedObject.Update();
         FillItems();
       }
 

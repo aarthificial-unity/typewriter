@@ -34,12 +34,10 @@
     <ui:Label
       text="Could not find the symbol database."
       style="margin-bottom: 4px"
-      display-tooltip-when-elided="true"
     />
-    <ui:Button
-      text="Create database"
-      display-tooltip-when-elided="true"
-      name="create"
-    />
+    <ui:VisualElement style="flex-direction: row;">
+      <ui:Button text="Create database" name="create"/>
+      <ui:Button text="Try again" name="refresh"/>
+    </ui:VisualElement>
   </ui:VisualElement>
 </ui:UXML>

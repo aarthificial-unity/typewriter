@@ -44,6 +44,17 @@ namespace Aarthificial.Typewriter.Editor.Common {
       Events.OnDatabaseCreated();
     }
 
+    public static void RefreshDatabase() {
+      if (TypewriterDatabase.Instance != null) {
+        return;
+      }
+
+      TypewriterDatabase.HasCachedInstance = false;
+      if (TypewriterDatabase.Instance != null) {
+        Events.OnDatabaseCreated();
+      }
+    }
+
     public static void RecreateRelations() {
       if (TypewriterDatabase.Instance != null) {
         TypewriterDatabase.Instance.RecreateRelations();
