@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Aarthificial.Typewriter.Editor {
-  public class TypewriterEditor : EditorWindow {
+  public class TypewriterEditor : EditorWindow, IHasCustomMenu {
     private DatabaseView _database;
     private InspectorView _inspector;
     private bool _isPortrait;
@@ -44,9 +44,14 @@ namespace Aarthificial.Typewriter.Editor {
       Refresh();
     }
 
-    [MenuItem("Tools/Typewriter")]
+    [MenuItem("Tools/Typewriter/Editor")]
     public static void Open() {
       GetWindow<TypewriterEditor>();
+    }
+
+    [MenuItem("Tools/Typewriter/Recreate lookup")]
+    private static void RecreateLookup() {
+      TypewriterDatabase.Instance.CreateLookup();
     }
 
     private void HandleGeometryChanged(GeometryChangedEvent _) {
@@ -65,6 +70,10 @@ namespace Aarthificial.Typewriter.Editor {
       _toolbar.BindCategory(_database.TableProperty);
       _toolbar.BindEntry(_database.EntryProperty);
       _inspector.BindProperty(_database.EntryProperty);
+    }
+
+    public void AddItemsToMenu(GenericMenu menu) {
+      menu.AddItem(new GUIContent("Recreate lookup"), false, RecreateLookup);
     }
   }
 }

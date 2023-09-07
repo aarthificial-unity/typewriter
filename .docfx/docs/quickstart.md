@@ -44,9 +44,9 @@ of conversations:
 - **Choices** presents the player with a choice.
 - **Contextual** changes the dialogue based on the context.
 
-You can open the Typewriter Editor using `Tools > Typewriter` and explore the
-entries that make up the dialogue. For clarity, each conversation has been
-placed in its own table.
+You can open the Typewriter Editor using `Tools > Typewriter > Editor` and
+explore the entries that make up the dialogue. For clarity, each conversation
+has been placed in its own table.
 
 [Discord server]: https://www.patreon.com/posts/patron-only-53003221
 [installation]: https://docs.unity3d.com/Manual/upm-ui-giturl.html
