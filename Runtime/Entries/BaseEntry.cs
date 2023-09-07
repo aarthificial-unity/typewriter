@@ -19,6 +19,7 @@ namespace Aarthificial.Typewriter.Entries {
     public EntryReference Scope;
 
     [SerializeField]
+    [InspectorName("Triggered by")]
     public TriggerList Triggers =
       new() { List = Array.Empty<EntryReference>() };
 

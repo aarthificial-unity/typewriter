@@ -2,6 +2,7 @@
 using Aarthificial.Typewriter.Editor.Common;
 using Aarthificial.Typewriter.Entries;
 using Aarthificial.Typewriter.References;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -28,6 +29,9 @@ namespace Aarthificial.Typewriter.Editor.References {
     ) {
       var listProperty =
         property.FindPropertyRelative(nameof(BaseEntry.TriggerList.List));
+      var propertyName =
+        fieldInfo.GetCustomAttribute<InspectorNameAttribute>()?.displayName
+        ?? property.displayName;
       var firstId = 0;
       if (listProperty.arraySize > 0) {
         firstId = listProperty.GetArrayElementAtIndex(0)
@@ -62,7 +66,7 @@ namespace Aarthificial.Typewriter.Editor.References {
       EditorGUI.PropertyField(
         position,
         listProperty,
-        new GUIContent(property.displayName),
+        new GUIContent(propertyName),
         true
       );
       if (length != listProperty.arraySize) {
