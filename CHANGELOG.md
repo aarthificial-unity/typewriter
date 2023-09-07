@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/aarthificial-gamedev/typewriter/compare/v1.1.3...v1.2.0) (2023-09-07)
+
+
+### Bug Fixes
+
+* fix removing tables ([92e3a4c](https://github.com/aarthificial-gamedev/typewriter/commit/92e3a4ccead0a9f157f8c88258d015a30e124673))
+* mark all blackboard changes ([f49ba92](https://github.com/aarthificial-gamedev/typewriter/commit/f49ba92fa02511a024c716dc4d28edd3960979e2))
+
+
+### Features
+
+* add refresh button ([bb3c1dc](https://github.com/aarthificial-gamedev/typewriter/commit/bb3c1dc4ef21b51a7699ea2c429f4948c350af9a))
+
 ## [1.1.3](https://github.com/aarthificial-gamedev/typewriter/compare/v1.1.2...v1.1.3) (2023-08-08)
 
 
