@@ -262,7 +262,8 @@ namespace Aarthificial.Typewriter {
       _entryLookup.Remove(entry.ID);
       _tableLookup.Remove(entry.ID);
 
-      foreach (var trigger in entry.Triggers.List) {
+      for (var i = entry.Triggers.List.Length - 1; i >= 0; i--) {
+        var trigger = entry.Triggers.List[i];
         GetRelations(trigger.ID).Remove(entry);
       }
     }
@@ -286,7 +287,8 @@ namespace Aarthificial.Typewriter {
         return;
       }
 
-      foreach (var entry in table.Rules) {
+      for (var i = table.Rules.Count - 1; i >= 0; i--) {
+        var entry = table.Rules[i];
         RemoveEntry(entry);
       }
 
