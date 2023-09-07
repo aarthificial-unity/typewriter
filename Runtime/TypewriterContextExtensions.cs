@@ -70,6 +70,7 @@ namespace Aarthificial.Typewriter {
       int value
     ) {
       if (provider.TryGetBlackboard(entry.Scope, out var blackboard)) {
+        TypewriterDatabase.Instance.MarkChange();
         blackboard.Set(entry.ID, value);
       }
     }
@@ -81,6 +82,7 @@ namespace Aarthificial.Typewriter {
     ) {
       if (reference.TryGetEntry(out var entry)
         && provider.TryGetBlackboard(entry.Scope, out var blackboard)) {
+        TypewriterDatabase.Instance.MarkChange();
         blackboard.Set(entry.ID, value);
       }
     }
@@ -91,6 +93,7 @@ namespace Aarthificial.Typewriter {
       int value
     ) {
       if (provider.TryGetBlackboard(entry.Scope, out var blackboard)) {
+        TypewriterDatabase.Instance.MarkChange();
         blackboard.Add(entry.ID, value);
       }
     }
@@ -102,6 +105,7 @@ namespace Aarthificial.Typewriter {
     ) {
       if (reference.TryGetEntry(out var entry)
         && provider.TryGetBlackboard(entry.Scope, out var blackboard)) {
+        TypewriterDatabase.Instance.MarkChange();
         blackboard.Add(entry.ID, value);
       }
     }
@@ -157,6 +161,7 @@ namespace Aarthificial.Typewriter {
     ) {
       if (modification.FactReference.TryGetEntry(out var entry)
         && provider.TryGetBlackboard(entry.Scope, out var blackboard)) {
+        TypewriterDatabase.Instance.MarkChange();
         blackboard.Modify(modification);
       }
     }
