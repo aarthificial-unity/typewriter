@@ -160,7 +160,7 @@ Customization.open {
   top: 3px;
   left: 4px;
   width: 24px;
-  height: 24px;
+  height: 16px;
   align-items: center;
   justify-content: center;
   display: none;

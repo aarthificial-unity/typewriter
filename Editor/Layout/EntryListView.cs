@@ -16,7 +16,7 @@ using Object = UnityEngine.Object;
 
 namespace Aarthificial.Typewriter.Editor.Layout {
   public class EntryListView : VisualElement {
-    private readonly ScrollView _container;
+    private readonly VisualElement _container;
     private readonly ExpandableListView _events;
     private readonly ExpandableListView _facts;
     private readonly ExpandableListView[] _lists;
@@ -33,11 +33,13 @@ namespace Aarthificial.Typewriter.Editor.Layout {
         Resources.Load<VisualTreeAsset>("UXML/Layout/EntryListView");
       visualTree.CloneTree(this);
 
-      _container = this.Q<ScrollView>("container");
+      _container = this.Q<VisualElement>("container");
       _facts = this.Q<ExpandableListView>("facts");
       _events = this.Q<ExpandableListView>("events");
       _rules = this.Q<ExpandableListView>("rules");
       _lists = new[] { _events, _facts, _rules };
+
+      _container.RegisterCallback<GeometryChangedEvent>(HandleGeometryChanged);
 
       _facts.AddManipulator(
         new ContextualMenuManipulator(
@@ -241,6 +243,12 @@ namespace Aarthificial.Typewriter.Editor.Layout {
       Refresh();
     }
 
+    private void HandleGeometryChanged(GeometryChangedEvent _) {
+      foreach (var list in _lists) {
+        list.MaxHeight = _container.layout.height;
+      }
+    }
+
     public void Refresh() {
       if (_so == null || _table == null) {
         _so = null;
@@ -290,13 +298,7 @@ namespace Aarthificial.Typewriter.Editor.Layout {
       if (sourceList != null && parentListView != null) {
         var index = sourceList.IndexOf(entry);
         parentListView.List.Select(index);
-        if (index > -1
-          && index < parentListView.List.contentContainer.childCount) {
-          var element = parentListView.List.contentContainer.ElementAt(index);
-          if (element != null) {
-            _container.ScrollTo(element);
-          }
-        }
+        parentListView.List.ScrollToItem(index);
       }
 
       _ignoreSelectionEvents = false;

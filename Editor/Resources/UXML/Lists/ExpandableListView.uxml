@@ -5,6 +5,7 @@
       item-height="24"
       selection-type="Multiple"
       reorderable="true"
+      style="max-height: 100%;"
       name="list"
     />
   </ui:Foldout>

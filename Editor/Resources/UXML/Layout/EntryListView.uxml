@@ -20,7 +20,7 @@
       class="list-icon"
     />
   </ui:VisualElement>
-  <ui:ScrollView name="container" style="flex-grow: 1;">
+  <ui:VisualElement name="container" style="flex-grow: 1;">
     <Aarthificial.Typewriter.Editor.Lists.ExpandableListView
       text="Facts"
       name="facts"
@@ -36,5 +36,5 @@
       name="rules"
       view-data-key="rules"
     />
-  </ui:ScrollView>
+  </ui:VisualElement>
 </ui:UXML>
