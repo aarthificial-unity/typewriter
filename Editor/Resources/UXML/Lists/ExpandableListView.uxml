@@ -3,6 +3,7 @@
     <Aarthificial.Typewriter.Editor.Lists.SimpleList
       focusable="true"
       item-height="24"
+      fixed-item-height="24"
       selection-type="Multiple"
       reorderable="true"
       style="max-height: 100%;"

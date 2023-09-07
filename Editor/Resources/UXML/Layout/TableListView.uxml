@@ -25,6 +25,7 @@
     focusable="true"
     name="list"
     item-height="24"
+    fixed-item-height="24"
     style="flex-grow: 1;"
   />
 </ui:UXML>
