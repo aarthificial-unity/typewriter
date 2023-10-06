@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Aarthificial.Typewriter.Editor.Lists {
@@ -37,7 +38,8 @@ namespace Aarthificial.Typewriter.Editor.Lists {
               return;
             }
 
-            var localPosition = evt.localPosition;
+            var localPosition =
+              (Vector2)evt.localPosition + _scrollView.scrollOffset;
             var num = (int)(localPosition.y / (double)fixedItemHeight);
             if (num < Source.Count && !selectedIndices.Contains(num)) {
               SetSelection(num);
