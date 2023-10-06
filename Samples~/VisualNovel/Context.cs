@@ -15,6 +15,16 @@ public class Context : ITypewriterContext {
   private const int _globalScope = 1388552;
   private const int _contextScope = 1388553;
 
+#if UNITY_EDITOR
+  // Make sure the global blackboard is reset when Domain Reloading is disabled.
+  [RuntimeInitializeOnLoadMethod(
+    RuntimeInitializeLoadType.SubsystemRegistration
+  )]
+  private static void Init() {
+    _global.Clear();
+  }
+#endif
+
   private static Blackboard _global = new();
   private Blackboard _context = new();
 
