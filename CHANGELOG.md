@@ -1,3 +1,20 @@
+# [1.3.0](https://github.com/aarthificial-gamedev/typewriter/compare/v1.2.0...v1.3.0) (2023-10-06)
+
+
+### Bug Fixes
+
+* account for scroll offset in virtual lists ([302b046](https://github.com/aarthificial-gamedev/typewriter/commit/302b046f728f7de4c29033efebaaf8c86b227395))
+* fix wrong item height in lists ([7f4f850](https://github.com/aarthificial-gamedev/typewriter/commit/7f4f8505e4848ac8bfcd979bd7012bca5e477e86))
+* mark reference helpers as readonly ([078b0db](https://github.com/aarthificial-gamedev/typewriter/commit/078b0db5f4fdbc029fb49dd6d18aba75bb3a690c))
+* support disabled domain reloading in samples ([0b4b978](https://github.com/aarthificial-gamedev/typewriter/commit/0b4b978a8411a1c29144f50ab1cd98de66f76916))
+
+
+### Features
+
+* add context menu for recreating lookup ([9f555d5](https://github.com/aarthificial-gamedev/typewriter/commit/9f555d5e60e83fc87d676c50b66cfd7784ae35e7))
+* add helpers for storing floats and bools ([5845a95](https://github.com/aarthificial-gamedev/typewriter/commit/5845a9567a5ad38919814e66526dac3eb36a186a))
+* add option for copying the entry ID ([568b0d9](https://github.com/aarthificial-gamedev/typewriter/commit/568b0d99998e0e9c703ce4db33cf615ede6569a0))
+
 # [1.2.0](https://github.com/aarthificial-gamedev/typewriter/compare/v1.1.3...v1.2.0) (2023-09-07)
 
 
