@@ -24,19 +24,19 @@ namespace Aarthificial.Typewriter.References {
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public BaseEntry GetEntry() {
+    public readonly BaseEntry GetEntry() {
       TryGetEntry(out var entry);
       return entry;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public T GetEntry<T>() where T : BaseEntry {
+    public readonly T GetEntry<T>() where T : BaseEntry {
       TryGetEntry(out T entry);
       return entry;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public readonly bool TryGetEntry(out BaseEntry entry) {
+    public  readonly bool TryGetEntry(out BaseEntry entry) {
       return TypewriterDatabase.Instance.TryGetEntry(InternalID, out entry);
     }
 
