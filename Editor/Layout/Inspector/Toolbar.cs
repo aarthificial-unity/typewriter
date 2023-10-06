@@ -24,6 +24,18 @@ namespace Aarthificial.Typewriter.Editor.Layout.Inspector {
       _titleCategory = this.Q<Label>("titleCategory");
       _titleEntry = this.Q<Label>("titleEntry");
       _titleEntryId = this.Q<Label>("titleEntryId");
+
+      this.AddManipulator(
+        new ContextualMenuManipulator(
+          evt => {
+            evt.menu.AppendAction(
+              $"Copy ID",
+              _ => GUIUtility.systemCopyBuffer = _titleEntryId.text
+            );
+          }
+        )
+      );
+
 #if UNITY_LOCALIZATION
       _binding = new Localization.LocalizedStringBinding(this);
       binding = _binding;
