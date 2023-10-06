@@ -12,6 +12,14 @@ namespace Aarthificial.Typewriter.Blackboards {
     [SerializeField] internal List<Pair> List = new();
     private Dictionary<int, int> _lookup = new();
 
+    public void Set(int key, float value) {
+      Set(key, BitConverter.SingleToInt32Bits(value));
+    }
+
+    public void Set(int key, bool value) {
+      Set(key, value ? 1 : 0);
+    }
+
     public void Set(int key, int value) {
       if (_lookup.TryGetValue(key, out var index)) {
         var pair = List[index];
@@ -44,6 +52,14 @@ namespace Aarthificial.Typewriter.Blackboards {
         );
         _lookup.Add(key, index);
       }
+    }
+
+    public float GetFloat(int key) {
+      return BitConverter.Int32BitsToSingle(Get(key));
+    }
+
+    public bool GetBool(int key) {
+      return Get(key) != 0;
     }
 
     public int Get(int key) {
