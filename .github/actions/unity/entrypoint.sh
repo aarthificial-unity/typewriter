@@ -14,7 +14,7 @@ dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 apt-get update
 apt-get install -y dotnet-sdk-7.0
-dotnet tool update -g docfx
+dotnet tool update -g docfx --version 2.67.5
 
 echo "::: Documentation Generation :::"
 ~/.dotnet/tools/docfx .docfx/docfx.json
