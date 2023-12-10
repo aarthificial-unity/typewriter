@@ -12,6 +12,8 @@
 <a href="https://www.patreon.com/aarthificial"><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Daarthificial%26type%3Dpatrons&style=flat" alt="Patreon"></a>
 
 ---
+> NOTE: Typewriter has been released for educational purposes. It probably won't
+> be developed further.
 
 Typewriter is a framework for building context-aware dialogue systems in
 [Unity].
@@ -26,14 +28,9 @@ of the dialogue and can be used for both textual and voice acted games. It is
 **not a drop-in solution** but rather a foundation for building your own
 systems. Good programming knowledge is necessary to use it.
 
-Typewriter is **not** open source **yet**. Currently, it's available only to
-my Compute tier supporters on [Patreon] and [YouTube]. Already a supporter?
-Follow the [instructions] to get access to the latest version.
-
 [Unity]: https://unity.com/
 [Firewatch]: https://youtu.be/wj-2vbiyHnI
 [TLOU]: https://www.gdcvault.com/play/1020386/A-Context-Aware-Character-Dialog
 [Valve]: https://youtu.be/tAbBID3N64A
 [Patreon]: https://www.patreon.com/aarthificial
 [YouTube]: https://www.youtube.com/@aarthificial/join
-[instructions]: https://www.patreon.com/aarthificial

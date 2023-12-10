@@ -21,9 +21,8 @@ systems. Good programming knowledge is necessary to use it.
 
 > [!NOTE]
 >
-> Typewriter is **not** open source **yet**. Currently, it's available only to
-> my Compute tier supporters on [Patreon] and [YouTube]. Already a supporter?
-> Follow the [instructions] to get access to the latest version.
+> Typewriter has been released for educational purposes. It probably won't
+> be developed further.
 
 > [!Video https://www.youtube.com/embed/1LlF5p5Od6A]
 
@@ -33,4 +32,3 @@ systems. Good programming knowledge is necessary to use it.
 [Valve]: https://youtu.be/tAbBID3N64A
 [Patreon]: https://www.patreon.com/aarthificial
 [YouTube]: https://www.youtube.com/@aarthificial/join
-[instructions]: https://www.patreon.com/posts/typewriter-early-86967465
